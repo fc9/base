@@ -131,7 +131,11 @@ return [
 
     'custom' => [
         'attribute-name' => [
-            'rule-name' => 'custom-message',
+            'unique' => 'The :attribute unavailable.',
+            'username:unique' => 'The :attribute unavailable.',
+            'username:regex' => 'The :attribute is not valid.',
+            'indicator:regex' => 'The :attribute is not valid.',
+            'qualified' => 'The :attribute not found or unqualified.',
         ],
     ],
 
@@ -146,6 +150,19 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'name' => 'name', # nome
+        'firstname' => 'first name', # primeiro nome
+        'lastname' => 'last name', # sobrenome
+        'username' => 'username', # nome de usuário
+        'indicator' => 'sponsor\'s username', # patrocinador
+        'email' => 'email address', # endereço de email
+        'password' => 'password', # senha
+        'confirm_password' => 'password confirm', # confirmação de senha
+        'phone' => 'phone number', # telefone
+        'country' => 'country', # país
+        'state' => 'state', # estado
+        'city' => 'city', # cidade
+    ],
 
 ];

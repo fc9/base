@@ -4436,7 +4436,7 @@ tbody.collapse.in {
 
 .dropdown-menu-left {
     right: auto;
-    left: 0;
+    left: calc(10rem - 34px);
 }
 
 .dropdown-header {

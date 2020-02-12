@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Modules\Register\Providers\RouteServiceProvider;
+use Modules\Register\Http\Requests\Auth\LoginRequest;
 
 class LoginController extends Controller
 {
@@ -36,5 +37,46 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showLoginForm()
+    {
+        dd(config('register.name'));
+        return view('auth.login');
+    }
+
+    /**
+     * @param LoginRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function login(LoginRequest $request)
+    {
+        $credentials = $request->only('username', 'password')
+            + ['status' => config('register.user.status.active')];
+        if (filter_var($credentials['username'], FILTER_VALIDATE_EMAIL)) {
+            $credentials['email'] = $credentials['username'];
+            unset($credentials['username']);
+        }
+
+        if (auth()->attempt($credentials, $request->get('remember') === 'on')) {
+            # TODO: verific email before
+            return redirect()->route('dashboard.home', ['username' => auth()->user()->username]);
+        }
+
+        return redirect()->back()
+            ->withInput($request->only('username', 'remember'))
+            ->withErrors(['username' => __('auth.failed'),]);
+    }
+
+    /**
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function logout()
+    {
+        auth()->logout();
+        return redirect()->route('login');
     }
 }

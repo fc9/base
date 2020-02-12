@@ -3,20 +3,22 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\App;
+use App;
 
-class Localization
+class Localize
 {
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param \Illuminate\Http\Request $request
+     * @param \Closure $next
      * @return mixed
      */
     public function handle($request, Closure $next)
     {
-        if (session()->has('locale')) App::setLocale(session()->get('locale'));
+        if (session()->has('locale')) {
+            App::setLocale(session()->get('locale'));
+        }
         return $next($request);
     }
 }

@@ -15,7 +15,7 @@
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="/vendor/wrappixel/monster-admin/4.2.1/assets/images/favicon.png">
     {{--<link rel="icon" type="image/png" sizes="16x16" href="/vendor/wrappixel/monster-admin/4.2.1/assets/images/favicon.png">--}}
-    <title>Empireasy - @yield('title')</title>
+    <title>@yield('title')</title>
 
     @stack('before-styles')
 

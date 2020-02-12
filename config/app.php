@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Company'),
 
     /*
     |--------------------------------------------------------------------------
@@ -165,6 +165,8 @@ return [
         /*
          * Package Service Providers...
          */
+        MenaraSolutions\Geographer\Integrations\LaravelServiceProvider::class,
+        Waavi\Sanitizer\Laravel\SanitizerServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -226,6 +228,9 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        /* Packages aliases */
+        'Geographer' => MenaraSolutions\Geographer\Integrations\LaravelFacade::class,
+        'Sanitizer' => Waavi\Sanitizer\Laravel\Facade::class,
     ],
 
 ];

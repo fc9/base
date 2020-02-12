@@ -1,0 +1,103 @@
+.progress-bar-component {
+    margin: 0 auto;
+    /*font-family: Beaufort for LOL,serif;*/
+    font-size: 0;
+    color: #54667a;
+    line-height: 1.2;
+}
+
+*, ::after, ::before {
+    box-sizing: inherit;
+    user-select: none;
+}
+
+.progress-bar-component .steps {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: calc(400px - 3rem);
+    margin: 0 auto;
+}
+
+.progress-bar-component .steps * {
+    border:0;
+}
+
+.progress-bar-component .step {
+    position: relative;
+    width: 16px;
+    height: 16px;
+}
+
+.progress-bar-component .step.active::before {
+    background: #009efb;
+}
+
+.progress-bar-component .step::after, .progress-bar-component .step::before {
+    content: "";
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+}
+
+.progress-bar-component .step.active::after {
+    border-width: 0px;
+}
+
+.progress-bar-component .step::after {
+    width: 13px;
+    height: 13px;
+    margin-top: -7px;
+    margin-left: -8px;
+    border: 1px solid #cfcfcf;
+}
+
+.progress-bar-component .step::after, .progress-bar-component .step::before {
+    content: "";
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+}
+
+.progress-bar-component .step::before {
+    width: 16px;
+    height: 16px;
+    margin-top: -8px;
+    margin-left: -8px;
+    background: #cfcfcf;
+}
+
+.progress-bar-component .step-label {
+    /*font-family: Beaufort for LOL,serif;*/
+    /*color: #c4b998;*/
+    font-size: 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: absolute;
+    top: 130%;
+    left: 50%;
+    transform: translate(-50%);
+    white-space: nowrap;
+    opacity: .3;
+}
+
+.progress-bar-component .step.active .step-label {
+    opacity: 1;
+}
+
+.progress-bar-component .step-line {
+    height: 2px;
+    width: 100%;
+    max-width: 100px;
+    background: #cfcfcf;
+    margin: 0;
+}
+
+.progress-bar-component .step-line.active {
+    background: #009efb;
+}

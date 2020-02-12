@@ -50,10 +50,10 @@
                             alert(url)
                         }
                     </script>
-                    {{ __('app.link_invitation') }}
+                    @lang('dashboard.link_invitation')
                     <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light ml-2"
                             onclick="clipboardURL()">
-                        {{ __('app.copy_link') }} <i class="ti-clipboard"></i>
+                        @lang('dashboard.copy_link') <i class="ti-clipboard"></i>
                     </button>
                 </li>
             </ul>
@@ -63,7 +63,7 @@
             <ul class="navbar-nav align-items-center my-lg-0">
                 <li>
                     <form method="post"
-                          action="{{ route('app.ecommerce.checkout', ['username' => Auth()->user()->username]) }}"
+                          action="{{-- route('dashboard.ecommerce.checkout', ['username' => Auth()->user()->username]) --}}"
                           class="nav-item dropdown mega-dropdown" onsubmit="checkRadius()">
                         @csrf
                         @if(auth()->user()->access_profile < 10)
@@ -71,7 +71,7 @@
                                style="color: #FFF !important; padding: 5px 40px !important;"
                                class="btn btn-warning btn-rounded dropdown-toggle text-muted waves-effect waves-light"
                                href="">
-                                {{ __('app.store') }}
+                                @lang('dashboard.store')
                             </a>
                         @endif
                         <div class="dropdown-menu animated bounceInDown">
@@ -80,7 +80,7 @@
                                     <img src="/vendor/wrappixel/monster-admin/4.2.1/assets/images/icon/graduation-cap.svg"
                                          width="auto" height="35px"/>
                                     <h4 class="font-weight-bold mb-0">
-                                        {{ __('app.courses_title') }}
+                                        @lang('dashboard.courses_title')
                                     </h4>
                                     <ul class="list-style-none">
                                         <li>
@@ -89,7 +89,7 @@
                                                        value="course_basic"
                                                        class="custom-control-input">
                                                 <label class="custom-control-label" for="customRadioInline1">
-                                                    {{ __('app.course_basic') }}
+                                                    @lang('dashboard.course_basic')
                                                 </label>
                                                 <span class="font-weight-bold">$100</span>
                                             </div>
@@ -99,7 +99,7 @@
                                                 <input type="radio" id="customRadioInline2" name="courser" checked
                                                        value="course_vision" class="custom-control-input">
                                                 <label class="custom-control-label" for="customRadioInline2">
-                                                    {{ __('app.course_vision') }}
+                                                    @lang('dashboard.course_vision')
                                                 </label>
                                                 <span class="font-weight-bold">$250</span>
                                             </div>
@@ -110,14 +110,14 @@
                                                        value="course_advance"
                                                        class="custom-control-input">
                                                 <label class="custom-control-label" for="customRadioInline3">
-                                                    {{ __('app.course_advance') }}
+                                                    @lang('dashboard.course_advance')
                                                 </label>
                                                 <span class="font-weight-bold">$500</span>
                                             </div>
                                         </li>
                                         <li>
                                             <p class="mt-1" style="font-size: 9px;">
-                                                {{ __('app.courses_description') }}
+                                                @lang('dashboard.courses_description')
                                             </p>
                                         </li>
                                     </ul>
@@ -126,7 +126,7 @@
                                     <img src="/vendor/wrappixel/monster-admin/4.2.1/assets/images/icon/stable.svg"
                                          width="auto" height="35px"/>
                                     <h4 class="font-weight-bold mb-0">
-                                        {{ __('app.signs_title') }}
+                                        @lang('dashboard.signs_title')
                                     </h4>
                                     <ul class="list-style-none">
                                         <li>
@@ -134,7 +134,7 @@
                                                 <input type="radio" id="customRadioInline4" name="signal_1"
                                                        class="custom-control-input" disabled>
                                                 <label class="custom-control-label" for="customRadioInline4">
-                                                    {{ __('app.sign_1') }}
+                                                    @lang('dashboard.sign_1')
                                                 </label>
                                                 <span class="font-weight-bold">$FREE</span>
                                             </div>
@@ -144,7 +144,7 @@
                                                 <input type="radio" id="customRadioInline5" name="signal_2"
                                                        class="custom-control-input" disabled>
                                                 <label class="custom-control-label" for="customRadioInline5">
-                                                    {{ __('app.sign_3') }}/mês
+                                                    @lang('dashboard.sign_3') /mês
                                                 </label>
                                                 <span class="font-weight-bold">$50</span>
                                             </div>
@@ -154,14 +154,14 @@
                                                 <input type="radio" id="customRadioInline6" name="signal_3"
                                                        class="custom-control-input" disabled>
                                                 <label class="custom-control-label" for="customRadioInline6">
-                                                    {{ __('app.sign_6') }}/mês
+                                                    @lang('dashboard.sign_6') /mês
                                                 </label>
                                                 <span class="font-weight-bold">$80</span>
                                             </div>
                                         </li>
                                         <li>
                                             <p class="mt-1" style="font-size: 9px;">
-                                                {{ __('app.signs_description') }}
+                                                @lang('dashboard.signs_description') }}
                                             </p>
                                         </li>
                                     </ul>
@@ -171,7 +171,7 @@
                                     <img src="/vendor/wrappixel/monster-admin/4.2.1/assets/images/icon/robot.svg"
                                          width="auto" height="35px"/>
                                     <h4 class="font-weight-bold mb-0">
-                                        {{ __('app.robots_trader_title') }}
+                                        @lang('dashboard.robots_trader_title')
                                     </h4>
                                     <ul class="list-style-none">
                                         <li>
@@ -179,7 +179,7 @@
                                                 <input type="radio" id="customRadioInline7" name="robot_trader_1"
                                                        class="custom-control-input" disabled>
                                                 <label class="custom-control-label" for="customRadioInline7">
-                                                    {{ __('app.robot_trader_3m') }}
+                                                    @lang('dashboard.robot_trader_3m')
                                                 </label>
                                                 <span class="font-weight-bold">$250</span>
                                             </div>
@@ -189,7 +189,7 @@
                                                 <input type="radio" id="customRadioInline8" name="robot_trader_2"
                                                        class="custom-control-input" disabled>
                                                 <label class="custom-control-label" for="customRadioInline8">
-                                                    {{ __('app.robot_trader_6m') }}
+                                                    @lang('dashboard.robot_trader_6m')
                                                 </label>
                                                 <span class="font-weight-bold">$400</span>
                                             </div>
@@ -199,14 +199,14 @@
                                                 <input type="radio" id="customRadioInline9" name="robot_trader_3"
                                                        class="custom-control-input" disabled>
                                                 <label class="custom-control-label" for="customRadioInline9">
-                                                    {{ __('app.robot_trader_12m') }}
+                                                    @lang('dashboard.robot_trader_12m')
                                                 </label>
                                                 <span class="font-weight-bold">$600</span>
                                             </div>
                                         </li>
                                         <li>
                                             <p class="mt-1" style="font-size: 9px;">
-                                                {{ __('app.robots_trader_description') }}
+                                                @lang('dashboard.robots_trader_description')
                                             </p>
                                         </li>
                                     </ul>
@@ -216,7 +216,7 @@
                                     <img src="/vendor/wrappixel/monster-admin/4.2.1/assets/images/icon/coupon.svg"
                                          width="auto" height="35px"/>
                                     <h4 class="font-weight-bold mb-0">
-                                        {{ __('app.vouchers_title') }}
+                                        @lang('dashboard.vouchers_title')
                                     </h4>
                                     <ul class="list-style-none">
                                         <li>
@@ -224,7 +224,7 @@
                                                 <input type="radio" id="customRadioInline10" name="customRadioInline1"
                                                        class="custom-control-input" disabled>
                                                 <label class="custom-control-label" for="customRadioInline10">
-                                                    {{ __('app.voucher_1u') }}
+                                                    @lang('dashboard.voucher_1u')
                                                 </label>
                                                 <span class="font-weight-bold">$250</span>
                                             </div>
@@ -234,7 +234,7 @@
                                                 <input type="radio" id="customRadioInline11" name="customRadioInline1"
                                                        class="custom-control-input" disabled>
                                                 <label class="custom-control-label" for="customRadioInline11">
-                                                    {{ __('app.voucher_5u') }}
+                                                    @lang('dashboard.voucher_5u')
                                                 </label>
                                                 <span class="font-weight-bold">$1.250</span>
                                             </div>
@@ -244,14 +244,14 @@
                                                 <input type="radio" id="customRadioInline12" name="customRadioInline1"
                                                        class="custom-control-input" disabled>
                                                 <label class="custom-control-label" for="customRadioInline12">
-                                                    {{ __('app.voucher_10u') }}
+                                                    @lang('dashboard.voucher_10u')
                                                 </label>
                                                 <span class="font-weight-bold">$2.500</span>
                                             </div>
                                         </li>
                                         <li>
                                             <p class="mt-1" style="font-size: 9px;">
-                                                {{ __('app.vouchers_description') }}
+                                                @lang('dashboard.vouchers_description')
                                             </p>
                                         </li>
                                     </ul>
@@ -261,14 +261,14 @@
                                 <div class="custom-control custom-checkbox mr-3">
                                     <input type="checkbox" class="custom-control-input" id="customCheck1">
                                     <label class="custom-control-label" for="customCheck1">
-                                        {{ __('app.terms_accepted') }} <a
-                                                href="#">{{ __('app.terms') }}</a>.
+                                        @lang('dashboard.terms_accepted')  <a
+                                                href="#">@lang('dashboard.terms') </a>.
                                     </label>
                                 </div>
 
                                 <button type="submit" class="btn btn-warning btn-rounded waves-effect waves-light"
                                         onclick="/*alert('action...')*/">
-                                    {{ __('app.buy') }}
+                                    @lang('dashboard.buy')
                                 </button>
                             </div>
                         </div>
@@ -291,34 +291,34 @@
                                     <div class="u-text">
                                         <h4>{{ auth()->user()->username }}</h4>
                                         <p class="text-muted">{{ substr(auth()->user()->email, 0, 16) }}...</p>
-                                        <a href="{{ route('app.account.profile', ['username' => auth()->user()->username]) }}"
+                                        <a href="{{-- route('dashboard.account.profile', ['username' => auth()->user()->username]) --}}"
                                            class="btn btn-rounded btn-danger btn-sm">
-                                            {{ __('app.view_profile') }}
+                                            @lang('dashboard.view_profile')
                                         </a>
                                     </div>
                                 </div>
                             </li>
                             <li role="separator" class="divider"></li>
                             <li>
-                                <a href="{{ route('app.account.profile', ['username' => auth()->user()->username]) }}">
-                                    <i class="ti-user"></i> {{ __('app.view_profile') }}
+                                <a href="{{-- route('dashboard.account.profile', ['username' => auth()->user()->username]) --}}">
+                                    <i class="ti-user"></i> @lang('dashboard.view_profile')
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('app.financeiro.historico-financeiro') }}">
-                                    <i class="ti-wallet"></i> {{ __('app.finances') }}
+                                <a href="{{-- route('dashboard.finances.history', ['username' => auth()->user()->username]) --}}">
+                                    <i class="ti-wallet"></i> @lang('dashboard.finances')
                                 </a>
                             </li>
                             <li role="separator" class="divider"></li>
                             <li>
-                                <form id="logout" action="{{ route('logout') }}" method="post">
+                                <script>
+
+                                </script>
+                                <form id="logout" action="{{ url('logout') }}" method="post">
                                     @csrf
                                     <button type="submit" style="border:0;padding:0;background:none;width:100%">
-                                        <a title="{{ __('app.logout_message') }}"
-                                           onclick="document.getElementById('logout').submit()">
                                             <i class="fa fa-power-off"></i>
-                                            &nbsp;{{ __('app.logout') }}
-                                        </a>
+                                            &nbsp;@lang('dashboard.logout')
                                     </button>
                                 </form>
                             </li>
@@ -328,7 +328,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href=""
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                       title="{{ __('app.language') }}">
+                       title="@lang('dashboard.language')">
                         <i class="flag-icon flag-icon-{{ App::getLocale() === 'en' ? 'us' : App::getLocale()  }}"></i>
                     </a>
                     <div class="dropdown-menu  dropdown-menu-right animated bounceInDown">

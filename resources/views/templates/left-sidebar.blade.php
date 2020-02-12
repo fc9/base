@@ -15,7 +15,7 @@
                     <li>
                         <a href="#" aria-expanded="false">
                             <i class="mdi mdi-gauge"></i>
-                            <span class="hide-menu">{{ __('app.header') }} </span>
+                            <span class="hide-menu">{{ __('dashboard.header') }} </span>
                         </a>
                     </li>
                 @endif
@@ -24,36 +24,36 @@
                     <a class="has-arrow" href="#" aria-expanded="false">
                         <i class="mdi mdi-shopping"></i>
                         <span class="hide-menu">
-                            {{ __('app.ecommerce') }} <span style="font-size: 10px;"></span>
+                            {{ __('dashboard.ecommerce') }} <span style="font-size: 10px;"></span>
                         </span>
                     </a>
                     <ul aria-expanded="false" class="collapse">
                         @if(auth()->user()->access_profile >= 10)
                             <li>
-                                <a href="{{ route('app.ecommerce.categories', ['username' => auth()->user()->username]) }}">
-                                    {{ __('app.categories') }}
+                                <a href="{{-- route('dashboard.ecommerce.categories', ['username' => auth()->user()->username]) --}}">
+                                    {{ __('dashboard.categories') }}
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('app.ecommerce.products', ['username' => auth()->user()->username]) }}">
-                                    {{ __('app.products') }}
+                                <a href="{{-- route('dashboard.ecommerce.products', ['username' => auth()->user()->username]) --}}">
+                                    {{ __('dashboard.products') }}
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('app.ecommerce.orders', ['username' => auth()->user()->username]) }}">
-                                    {{ __('app.orders') }}
+                                <a href="{{-- route('dashboard.ecommerce.orders', ['username' => auth()->user()->username])-- }}">
+                                    {{ __('dashboard.orders') }}
                                 </a>
                             </li>
                         @endif
                         @if(auth()->user()->access_profile < 10)
                             <li>
-                                <a href="#">{{ __('app.store') }} </a>
+                                <a href="#">{{ __('dashboard.store') }} </a>
                             </li>
                         @endif
                         @if(auth()->user()->access_profile >= 10)
                             <li>
-                                <a href="{{ route('app.ecommerce.my_orders', ['username' => auth()->user()->username]) }}">
-                                    {{ __('app.my_orders') }}
+                                <a href="{{-- route('dashboard.ecommerce.my_orders', ['username' => auth()->user()->username]) --}}">
+                                    {{ __('dashboard.my_orders') }}
                                 </a>
                             </li>
                         @endif
@@ -64,40 +64,40 @@
                     <a class="has-arrow" href="#" aria-expanded="false">
                         <i class="mdi mdi-square-inc-cash"></i>
                         <span class="hide-menu">
-                            {{ __('app.finances') }} <span style="font-size: 10px;"></span>
+                            {{ __('dashboard.finances') }} <span style="font-size: 10px;"></span>
                         </span>
                     </a>
                     <ul aria-expanded="false" class="collapse">
                         @if(auth()->user()->access_profile >= 10)
                             <li>
-                                <a href="{{ route('app.financeiro.credito-debito') }}">
-                                    {{ __('app.credit_and_debit') }}
+                                <a href="{{-- route('dashboard.financeiro.credito-debito') --}}">
+                                    {{ __('dashboard.credit_and_debit') }}
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('app.financeiro.historico-financeiro') }}">
-                                    {{ __('app.financial_history') }}
+                                <a href="{{-- route('dashboard.financeiro.historico-financeiro') --}}">
+                                    {{ __('dashboard.financial_history') }}
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('app.financeiro.gerenciar-saque') }}">
-                                    {{ __('app.manage_withdrawal')  }}
+                                <a href="{{-- route('dashboard.financeiro.gerenciar-saque') --}}">
+                                    {{ __('dashboard.manage_withdrawal')  }}
                                 </a>
                             </li>
                         @else
                             <li>
-                                <a href="{{ route('app.financeiro.historico-financeiro') }}">
-                                    {{ __('app.financial_history') }} <span style="font-size: 10px;"></span>
+                                <a href="{{-- route('dashboard.financeiro.historico-financeiro') --}}">
+                                    {{ __('dashboard.financial_history') }} <span style="font-size: 10px;"></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('app.financeiro.historico-saque') }}">
-                                    {{ __('app.withdrawal_history') }} <span style="font-size: 10px;"></span>
+                                <a href="{{-- route('dashboard.financeiro.historico-saque') --}}">
+                                    {{ __('dashboard.withdrawal_history') }} <span style="font-size: 10px;"></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('app.financeiro.solicitar-saque') }}">
-                                    {{ __('app.request_withdrawal') }} <span style="font-size: 10px;"></span>
+                                <a href="{{-- route('dashboard.financeiro.solicitar-saque') --}}">
+                                    {{ __('dashboard.request_withdrawal') }} <span style="font-size: 10px;"></span>
                                 </a>
                             </li>
                         @endif
@@ -107,19 +107,19 @@
                 <li>
                     <a class="has-arrow" href="#" aria-expanded="false">
                         <i class="mdi mdi-square-inc-cash"></i>
-                        <span class="hide-menu">{{ __('app.voucher') }}</span>
+                        <span class="hide-menu">{{ __('dashboard.voucher') }}</span>
                     </a>
                     <ul aria-expanded="false" class="collapse">
                         @if(auth()->user()->access_profile >= 10)
                             <li>
-                                <a href="{{ route('app.voucher.voucher-admin') }}">
-                                    {{ __('app.manager_voucher')  }}
+                                <a href="{{-- route('dashboard.voucher.voucher-admin') --}}">
+                                    {{ __('dashboard.manager_voucher')  }}
                                 </a>
                             </li>
                         @else
                             <li>
-                                <a href="{{ route('app.voucher.voucher') }}">
-                                    {{ __('app.pay_with_voucher')  }} <span style="font-size: 10px;"></span>
+                                <a href="{{-- route('dashboard.voucher.voucher') --}}">
+                                    {{ __('dashboard.pay_with_voucher')  }} <span style="font-size: 10px;"></span>
                                 </a>
                             </li>
                         @endif
@@ -131,28 +131,28 @@
                         <a class="has-arrow" href="#" aria-expanded="false">
                             <i class="mdi mdi-account-multiple-outline"></i>
                             <span class="hide-menu">
-                            {{ __('app.network') }} <span style="font-size: 10px;"></span>
+                            {{ __('dashboard.network') }} <span style="font-size: 10px;"></span>
                         </span>
                         </a>
                         <ul aria-expanded="false" class="collapse">
                             <li>
-                                <a href="{{ route('app.network.unilevel', ['username'=> auth()->user()->username]) }}">
-                                    {{ __('app.unilevel') }} <span style="font-size: 10px;"></span>
+                                <a href="{{-- route('dashboard.network.unilevel', ['username'=> auth()->user()->username]) --}}">
+                                    {{ __('dashboard.unilevel') }} <span style="font-size: 10px;"></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('app.network.binary', ['username' => auth()->user()->username]) }}">
-                                    {{ __('app.binary') }} <span style="font-size: 10px;"></span>
+                                <a href="{{-- route('dashboard.network.binary', ['username' => auth()->user()->username]) --}}">
+                                    {{ __('dashboard.binary') }} <span style="font-size: 10px;"></span>
                                 </a>
                             </li>
                             {{--<li>
-                                <a href="{{ route('app.network.binary.strategy', ['username' => auth()->user()->username]) }}">
-                                    {{ __('app.binary_strategy') }} <span style="font-size: 10px;"></span>
+                                <a href="{{ route('dashboard.network.binary.strategy', ['username' => auth()->user()->username]) }}">
+                                    {{ __('dashboard.binary_strategy') }} <span style="font-size: 10px;"></span>
                                 </a>
                             </li>--}}
                             <li>
-                                <a href="{{ route('app.network.career_history', ['username' => auth()->user()->username]) }}">
-                                    {{ __('app.career_history') }} <span style="font-size: 10px;"></span>
+                                <a href="{{-- route('dashboard.network.career_history', ['username' => auth()->user()->username]) --}}">
+                                    {{ __('dashboard.career_history') }} <span style="font-size: 10px;"></span>
                                 </a>
                             </li>
                         </ul>
@@ -164,23 +164,23 @@
                         <a class="has-arrow" href="#" aria-expanded="false">
                             <i class="mdi mdi-certificate"></i>
                             <span class="hide-menu">
-                            {{ __('app.punctuation') }} <span style="font-size: 10px;"></span>
+                            {{ __('dashboard.punctuation') }} <span style="font-size: 10px;"></span>
                         </span>
                         </a>
                         <ul aria-expanded="false" class="collapse">
                             <li>
-                                <a href="{{ route('app.pontuacao.qualificacao') }}">
-                                    {{ __('app.points_qualification') }} <span style="font-size: 10px;"></span>
+                                <a href="{{-- route('dashboard.pontuacao.qualificacao') --}}">
+                                    {{ __('dashboard.points_qualification') }} <span style="font-size: 10px;"></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('app.pontuacao.comissao') }}">
-                                    {{ __('app.commission_points') }} <span style="font-size: 10px;"></span>
+                                <a href="{{-- route('dashboard.pontuacao.comissao') --}}">
+                                    {{ __('dashboard.commission_points') }} <span style="font-size: 10px;"></span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ route('app.pontuacao.pool-point') }}">
-                                    {{ __('app.pool_points') }} <span style="font-size: 10px;"></span>
+                                <a href="{{-- route('dashboard.pontuacao.pool-point') --}}">
+                                    {{ __('dashboard.pool_points') }} <span style="font-size: 10px;"></span>
                                 </a>
                             </li>
                         </ul>
@@ -190,27 +190,27 @@
                 <li>
                     <a class="has-arrow" href="#" aria-expanded="false">
                         <i class="mdi mdi-home"></i>
-                        <span class="hide-menu">{{ __('app.admin') }}</span>
+                        <span class="hide-menu">{{ __('dashboard.admin') }}</span>
                     </a>
                     <ul aria-expanded="false" class="collapse">
                         @if(auth()->user()->access_profile >= 10)
                             <li>
-                                <a href="{{ route('app.admin.usuario') }}">
-                                    {{ __('app.user') }}
+                                <a href="{{-- route('dashboard.admin.usuario') --}}">
+                                    {{ __('dashboard.user') }}
                                 </a>
                             </li>
                         @endif
                         @if(auth()->user()->access_profile < 10)
                             <li>
-                                <a href="{{ route('app.admin.relatorio-atividade') }}">
-                                    {{ __('app.activity_report') }}
+                                <a href="{{-- route('dashboard.admin.relatorio-atividade') --}}">
+                                    {{ __('dashboard.activity_report') }}
                                 </a>
                             </li>
                         @endif
                         @if(auth()->user()->access_profile >= 10)
                             <li>
-                                <a href="{{ route('app.admin.aprovar-documento') }}">
-                                    {{ __('app.document_approval') }}
+                                <a href="{{-- route('dashboard.admin.aprovar-documento') --}}">
+                                    {{ __('dashboard.document_approval') }}
                                 </a>
                             </li>
                         @endif
@@ -222,7 +222,7 @@
                         <a href="javascript:void(0)" aria-expanded="false">
                             <i class="mdi mdi-briefcase-download"></i>
                             <span class="hide-menu">
-                            {{ __('app.material_download') }} <span style="font-size: 10px;"></span>
+                            {{ __('dashboard.material_download') }} <span style="font-size: 10px;"></span>
                             </span>
                         </a>
                     </li>

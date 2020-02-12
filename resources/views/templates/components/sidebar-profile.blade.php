@@ -10,12 +10,12 @@
         </a>
         <div class="dropdown-menu animated flipInY">
             @if(auth()->user()->id > 2)
-                <a href="{{ route('app.account.profile', ['username'=> auth()->user()->username]) }}"
+                <a href="{{-- route('dashboard.account.profile', ['username'=> auth()->user()->username]) --}}"
                    class="dropdown-item">
                     <i class="ti-user mr-2"></i> {{ __('backoffice.my_profile') }}
                 </a>
             @endif
-            <a href="{{ route('app.financeiro.historico-financeiro') }}" class="dropdown-item">
+            <a href="{{-- route('dashboard.finances.history') --}}" class="dropdown-item">
                 <i class="ti-wallet mr-2"></i>{{ __('backoffice.finances') }}
             </a>
             <div class="dropdown-divider"></div>
