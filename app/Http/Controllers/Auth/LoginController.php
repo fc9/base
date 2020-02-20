@@ -44,7 +44,6 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
-        dd(config('register.name'));
         return view('auth.login');
     }
 
@@ -54,18 +53,18 @@ class LoginController extends Controller
      */
     public function login(LoginRequest $request)
     {
-        $credentials = $request->only('username', 'password')
-            + ['status' => config('register.user.status.active')];
+        $credentials = $request->only('username', 'password') + ['status' => config('register.user.status.active')];
         if (filter_var($credentials['username'], FILTER_VALIDATE_EMAIL)) {
             $credentials['email'] = $credentials['username'];
             unset($credentials['username']);
         }
 
         if (auth()->attempt($credentials, $request->get('remember') === 'on')) {
-            # TODO: verific email before
+            if (auth()->user()->email_verified_at === null) {
+                return redirect()->route('signup.confirm');
+            }
             return redirect()->route('dashboard.home', ['username' => auth()->user()->username]);
         }
-
         return redirect()->back()
             ->withInput($request->only('username', 'remember'))
             ->withErrors(['username' => __('auth.failed'),]);

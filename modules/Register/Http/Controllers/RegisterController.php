@@ -24,9 +24,8 @@ class RegisterController extends Controller
 
         $data['id'] = $user->id;
         $data['user_id'] = $user->id;
-        Person::create($data);
-
         $data['person_id'] = $user->id;
+        Person::create($data);
         Membership::create($data);
 
         $earth = new Earth();

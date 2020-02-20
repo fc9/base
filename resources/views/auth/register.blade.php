@@ -26,11 +26,6 @@
     <script src="/vendor/wrappixel/monster-admin/4.2.1/monster/js/custom.min.js"></script>
     <script src="/component/intl-tel-input-16.0.0/build/js/intlTelInput.js"></script>
     <script src="/js/auth/register.js"></script>
-    <script>
-        $('#registerform').submit(function () {
-            $(this).find('input[type=submit]').prop('disabled', true)
-        })
-    </script>
 @endsection
 
 @section('layout-content')
@@ -147,7 +142,7 @@
                                         </a>
                                     </p>
                                     <p>
-                                        <a href="{{ back() }}" class="text-info ml-1">
+                                        <a href="{{ route('signup') }}" class="text-info ml-1">
                                             <b>@lang('auth.back')</b>
                                         </a>
                                     </p>

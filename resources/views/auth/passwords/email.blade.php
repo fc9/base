@@ -1,69 +1,91 @@
 @extends('templates.master')
 
+@section('title', config('app.name'))
+
 @section('template-css')
     <!-- toast CSS -->
-    <link href="/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/toast-master/css/jquery.toast.css"
-          rel="stylesheet">
     <link href="/css/monster/style.css" rel="stylesheet">
-    @toastr_css
 @endsection
 
 @section('template-custom-js')
     <script src="/vendor/wrappixel/monster-admin/4.2.1/monster/js/custom.min.js"></script>
-    @toastr_js
-    @toastr_render
 @endsection
 
 @section('layout-content')
     <section id="wrapper">
-
-        <div class="login-register" style="background-image:url('/images/empireasy/auth_background.jpg');">
-            <!--section id="wrapper" class="login-register login-sidebar" style="background-image:url(/vendor/wrappixel/monster-admin/4.2.1/assets/images/background/login-register.jpg);"-->
+        <div class="login-register"
+             style="background-color:#f6f6f6;background-image:url('/images/template/auth/background.png');">
             <div class="login-box card">
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                    <form method="POST" action="{{ route('password.email') }}" role="form">
+                    <form method="post" action="{{ route('password.email') }}" class="form-horizontal form-material"
+                          id="emailform" role="form">
                         @csrf
-                        <div class="form-group ">
+                        <a href="javascript:void(0)" class="text-center db mb-3">
+                            <img src="@lang('auth.logo')" alt="{{ env('APP_NAME') }}" width="auto" height="45px"/>
+                        </a>
+                        <h3 class="text-center" style="font-weight:700">@lang('auth.forgot_password')</h3>
+                        <p class="text-muted">{{ __('auth.forgot_password_instructions') }}</p>
+                        <div class="form-group">
                             <div class="col-xs-12">
-                                <h3>{{ __('auth.forgot_password') }}</h3>
-                                <p class="text-muted">{{ __('auth.forgot_password_instructions') }}</p>
+                                @if($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul style="margin:0">
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @else
+                                    <div class="alert alert-success">
+                                        @lang('auth.email_sent')
+                                    </div>
+                                @endif
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-xs-12">
-                                <input id="email" type="email" name="email" value="{{ old('email') }}" required
-                                       class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
-                                       maxlength="90" placeholder="mail@mail.com">
+                                <input type="text" minlength="8" maxlength="45" required=""
+                                       placeholder="@lang('auth.label_email')" autocomplete="off"
+                                       title="@lang('auth.label_email')" name="email"
+                                       class="form-control btn-lg text-center" value="{{ old('email') }}">
+                                {{--@error('username')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                                @enderror--}}
                             </div>
                         </div>
-                        <div class="form-group text-center m-t-20">
+                        <div class="form-group text-center mt-3">
                             <div class="col-xs-12">
-                                <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light"
-                                        type="submit">
-                                    {{ __('auth.send_password_reset_link') }}
+                                <button type="submit" class="btn btn-info btn-lg btn-block">
+                                    @lang('auth.send_password_reset_link')
                                 </button>
                             </div>
                         </div>
-                    </form>
-                    <div class="form-group mb-0">
-                        <div class="col-sm-12 text-center">
-                            <p>{{ __('auth.dont_account') }}
-                                <a href="{{ route('register') }}" class="text-info ml-1">
-                                    <b>{{ __('auth.sign_up') }}</b>
-                                </a>
-                            </p>
-                            <p>{{ __('auth.go_home') }}
-                                <a href="{{ route('login') }}" class="text-info ml-1">
-                                    <b>{{ __('auth.sign_in') }}</b>
-                                </a>
-                            </p>
+                        <div class="form-group">
+                            <div class="col-xs-12 text-center">
+                                @include('templates.components.dropdown-lang')
+                            </div>
                         </div>
-                    </div>
+                        <div class="form-group mb-0">
+                            <div class="col-sm-12">
+                                @if (Route::has('signup.check'))
+                                    <p>
+                                        <a href="{{ route('signup.check') }}" class="text-info ml-1">
+                                            <b>@lang('auth.create_account2')</b>
+                                        </a>
+                                    </p>
+                                @endif
+                                @if (Route::has('home'))
+                                    <p>
+                                        <a href="{{ route('home') }}" class="text-info ml-1">
+                                            <b>@lang('auth.go_home')</b>
+                                        </a>
+                                    </p>
+                                @endif
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

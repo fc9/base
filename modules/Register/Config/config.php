@@ -79,6 +79,10 @@ return [
             'juridical' => 'Juridical',
         ],
 
+        'avatar' =>[
+            'path' => 'uploads/profile/',
+        ],
+
     ],
 
     'user' => [

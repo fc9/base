@@ -167,6 +167,7 @@ return [
          */
         MenaraSolutions\Geographer\Integrations\LaravelServiceProvider::class,
         Waavi\Sanitizer\Laravel\SanitizerServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -231,6 +232,7 @@ return [
         /* Packages aliases */
         'Geographer' => MenaraSolutions\Geographer\Integrations\LaravelFacade::class,
         'Sanitizer' => Waavi\Sanitizer\Laravel\Facade::class,
+        'Image' => Intervention\Image\Facades\Image::class,
     ],
 
 ];

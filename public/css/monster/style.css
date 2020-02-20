@@ -7371,7 +7371,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #2c2b2e;
+  color: #54667a;
   font-family: "Rubik", sans-serif;
   font-weight: 400;
 }
@@ -9754,7 +9754,7 @@ File: scss
 }
 
 .topbar ul.dropdown-user li .dw-user-box .u-text .btn:hover {
-  background: #e6294b;
+  background: #009efb; #e6294b;
 }
 
 .topbar ul.dropdown-user li a {

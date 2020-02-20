@@ -29,7 +29,7 @@
                           method="post">
                         @csrf
                         <a href="javascript:void(0)" class="text-center db mb-3">
-                            <img src="@lang('auth.logo')" alt="{{ env('APP_NAME') }}" width="auto" height="45px"/>
+                            <img src="@lang('app.logo')" alt="{{ env('APP_NAME') }}" width="auto" height="45px"/>
                         </a>
                         <h3 class="text-center" style="font-weight:700">@lang('auth.begin_session')</h3>
                         <div class="form-group">
@@ -47,7 +47,7 @@
                         </div>
                         <div class="form-group ">
                             <div class="col-xs-12">
-                                <input type="text" minlength="6" maxlength="45" required=""
+                                <input type="text" minlength="5" maxlength="45" required=""
                                        placeholder="@lang('auth.label_username_or_email')" autocomplete="off"
                                        title="@lang('auth.label_username_or_email')" name="username"
                                        class="form-control btn-lg text-center" value="{{ old('username') }}">
@@ -81,31 +81,33 @@
                         </div>
                         <div class="form-group text-center mt-3">
                             <div class="col-xs-12">
-                                <button type="submit" class="btn btn-info btn-lg btn-block text-uppercase"
-                                        sstyle="width:calc(100% - 3.2rem)">
+                                <button type="submit" class="btn btn-info btn-lg btn-block text-uppercase">
                                     @lang('auth.sign_in')
                                 </button>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-xs-12 text-center">
-                                {{--@include('templates.components.progress-bar')--}}
                                 @include('templates.components.dropdown-lang')
                             </div>
                         </div>
                         @if (Route::has('login'))
                             <div class="form-group mb-0">
                                 <div class="col-sm-12">
-                                    <p>
-                                        <a href="{{ route('password.request') }}" class="text-info ml-1">
-                                            <b>@lang('auth.cant_login')</b>
-                                        </a>
-                                    </p>
-                                    <p>
-                                        <a href="{{ route('signup.check') }}" class="text-info ml-1">
-                                            <b>@lang('auth.create_account2')</b>
-                                        </a>
-                                    </p>
+                                    @if (Route::has('password.request'))
+                                        <p>
+                                            <a href="{{ route('password.request') }}" class="text-info ml-1">
+                                                <b>@lang('auth.cant_login')</b>
+                                            </a>
+                                        </p>
+                                    @endif
+                                    @if (Route::has('signup.check'))
+                                        <p>
+                                            <a href="{{ route('signup.check') }}" class="text-info ml-1">
+                                                <b>@lang('auth.create_account2')</b>
+                                            </a>
+                                        </p>
+                                    @endif
                                 </div>
                             </div>
                         @endif

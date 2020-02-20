@@ -7,17 +7,18 @@ return [
     'node' => [
 
         'status' => [
-            'inactive' => 0,
-            'aspirant' => 1,
-            'added' => 2,
+            'inactive' => 'Inactive',
+            'aspirant' => 'Aspirant',
+            'added' => 'Added',
         ],
+
     ],
 
     'bonus' => [
 
         'status' => [
-            'inactive' => 0,
-            'active' => 1,
+            'inactive' => 'Inactive',
+            'active' => 'Active',
         ],
 
     ],
@@ -25,18 +26,23 @@ return [
     'unilevel' => [
 
         '?' => [
-            '?' => 0,
+            '?' => '?',
         ],
 
     ],
 
     'binary' => [
 
-        'leg' => [
-            'balanced' => 'B',
+        'fixed_leg' => [
             'left' => 'L',
             'right' => 'R',
             'undefined' => 'U',
+        ],
+
+        'work_leg' => [
+            'balanced' => 'B',
+            'left' => 'L',
+            'right' => 'R',
         ],
 
     ],

@@ -55,7 +55,7 @@ class RegisterController extends Controller
     public function register(RegisterRequest $request)
     {
         $user = RegisterModule::register($request->all());
-        //NetworkController::register($user);
+        NetworkController::register($user);
         //BankController::register($user);
         //StoreController::register($user);
 

@@ -7,18 +7,16 @@
         <!-- Logo -->
         <!-- ============================================================== -->
         <div class="navbar-header">
-            <a class="navbar-brand" href="{{ route('monster.demos.phptojsvars') }}">
+            <a class="navbar-brand" href="{{ route('dashboard.home', ['username' => $user->username]) }}">
                 <!-- Logo icon -->
                 <b class="d-none">
-                    <!-- Dark Logo icon -->
-                    <img src="/vendor/wrappixel/monster-admin/4.2.1/assets/images/logo_mini.svg" alt="homepage"
-                         class="dark-logo" width="auto" height="50px"/>
+                    <img src="/images/template/logo-base.svg" alt="homepage" class="dark-logo" width="auto"
+                         height="50px"/>
                 </b>
-                <!--End Logo icon -->
                 <!-- Logo text -->
                 <span>
-                         <img src="/vendor/wrappixel/monster-admin/4.2.1/assets/images/logo.svg" alt="homepage"
-                              class="dark-logo" width="auto" height="50px" style="margin-left: -30px;"/>
+                     <img src="/images/template/logo-base.svg" alt="homepage" class="dark-logo" width="auto"
+                          height="50px" style="width:75%"/>
                 </span>
             </a>
         </div>
@@ -27,7 +25,7 @@
         <!-- ============================================================== -->
         <div class="navbar-collapse">
             <!-- ============================================================== -->
-            <!-- toggle and nav items -->
+            <!-- Copy Clipboard                                                 -->
             <!-- ============================================================== -->
             <ul class="navbar-nav align-items-center ml-4 mr-auto mt-md-0">
                 <li class="nav-item">
@@ -38,32 +36,30 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link sidebartoggler hidden-sm-down text-muted waves-effect waves-dark"
-                       href="javascript:void(0)">
+                       href="javascript:void(0)" style="padding-left:0">
                         <i class="icon-arrow-left-circle"></i>
                     </a>
                 </li>
                 <li class="d-none d-lg-flex nav-item">
-                    <script>
-                        function clipboardURL() {
-                            let url = '{{ url('/invitation/'. Auth()->user()->username) }}';
-                            document.execCommand(url)
-                            alert(url)
-                        }
-                    </script>
-                    @lang('dashboard.link_invitation')
-                    <button type="button" class="btn btn-primary btn-sm btn-rounded waves-effect waves-light ml-2"
-                            onclick="clipboardURL()">
-                        @lang('dashboard.copy_link') <i class="ti-clipboard"></i>
+                    <input id="foo" class="form-control" value="{{  url('/invitation/'. $user->username ) }}"
+                           style="width:380px">
+                    <button type="button" class="btn btn-dark btn-sm btn-rounded waves-effect waves-light ml-2"
+                            id="btn_copy" data-clipboard-target="#foo" style="min-width:100px">
+                        @lang('dashboard.copy') <i class="ti-clipboard"></i>
                     </button>
+                    <script src="/component/clipboard.js-master/dist/clipboard.min.js"></script>
+                    <script>
+                        new ClipboardJS('#btn_copy');
+                    </script>
                 </li>
             </ul>
             <!-- ============================================================== -->
-            <!-- User profile and search -->
+            <!-- User profile                                                   -->
             <!-- ============================================================== -->
             <ul class="navbar-nav align-items-center my-lg-0">
                 <li>
-                    <form method="post"
-                          action="{{-- route('dashboard.ecommerce.checkout', ['username' => Auth()->user()->username]) --}}"
+                    {{--<form method="post"
+                          action="{{ route('dashboard.ecommerce.checkout', ['username' => Auth()->user()->username]) }}"
                           class="nav-item dropdown mega-dropdown" onsubmit="checkRadius()">
                         @csrf
                         @if(auth()->user()->access_profile < 10)
@@ -261,7 +257,7 @@
                                 <div class="custom-control custom-checkbox mr-3">
                                     <input type="checkbox" class="custom-control-input" id="customCheck1">
                                     <label class="custom-control-label" for="customCheck1">
-                                        @lang('dashboard.terms_accepted')  <a
+                                        @lang('dashboard.terms_accepted') <a
                                                 href="#">@lang('dashboard.terms') </a>.
                                     </label>
                                 </div>
@@ -272,53 +268,64 @@
                                 </button>
                             </div>
                         </div>
-                    </form>
+                    </form>--}}
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href=""
                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img src="/vendor/wrappixel/monster-admin/4.2.1/assets/images/users/5.jpg" alt="user"
-                             class="profile-pic"/>
+                        <img src="{{ $user->avatar !== null ? url($user->avatar) : '/images/user.jpg' }}"
+                             alt="{{ $user->username }}" class="profile-pic"/>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right animated flipInY">
                         <ul class="dropdown-user">
                             <li>
                                 <div class="dw-user-box">
                                     <div class="u-img">
-                                        <img src="/vendor/wrappixel/monster-admin/4.2.1/assets/images/users/5.jpg"
-                                             alt="user">
+                                        <img src="{{ $user->avatar !== null ? url($user->avatar) : '/images/user.jpg' }}"
+                                             alt="{{ $user->username }}">
                                     </div>
                                     <div class="u-text">
-                                        <h4>{{ auth()->user()->username }}</h4>
-                                        <p class="text-muted">{{ substr(auth()->user()->email, 0, 16) }}...</p>
-                                        <a href="{{-- route('dashboard.account.profile', ['username' => auth()->user()->username]) --}}"
-                                           class="btn btn-rounded btn-danger btn-sm">
-                                            @lang('dashboard.view_profile')
-                                        </a>
+                                        <h4>{{ $user->username }}</h4>
+                                        <p class="text-muted">{{ substr($user->email, 0, 16) }}...</p>
+                                        @if($user->is_user)
+                                            <a href="{{ route('dashboard.account.profile', ['username' => $user->username]) }}"
+                                               class="btn btn-rounded btn-info bbtn-sm">
+                                                @lang('dashboard.view_profile')
+                                            </a>
+                                        @endif
                                     </div>
                                 </div>
                             </li>
                             <li role="separator" class="divider"></li>
                             <li>
-                                <a href="{{-- route('dashboard.account.profile', ['username' => auth()->user()->username]) --}}">
-                                    <i class="ti-user"></i> @lang('dashboard.view_profile')
+                                <a href="{{ route('dashboard.account.profile', ['username' => $user->username]) }}">
+                                    <i class="ti-user"></i> @lang('dashboard.my_profile')
                                 </a>
                             </li>
-                            <li>
-                                <a href="{{-- route('dashboard.finances.history', ['username' => auth()->user()->username]) --}}">
-                                    <i class="ti-wallet"></i> @lang('dashboard.finances')
-                                </a>
-                            </li>
+                            @if($user->is_user)
+                                <li>
+                                    <a href="{{ route('dashboard.finances.history', ['username' => $user->username]) }}">
+                                        <i class="ti-wallet"></i> @lang('dashboard.finances')
+                                    </a>
+                                </li>
+                            @endif
+                            <!-- TODO: refatorar -->
+                            @if(auth()->user()->access_profile === 'Superuser' || auth()->user()->access_profile === 'Admin')
                             <li role="separator" class="divider"></li>
                             <li>
-                                <script>
-
-                                </script>
-                                <form id="logout" action="{{ url('logout') }}" method="post">
+                                <a href="#">
+                                    <i class="ti-settings"></i> Account Setting
+                                </a>
+                            </li>
+                            @endif
+                            <li role="separator" class="divider"></li>
+                            <li>
+                                <form id="logout" action="{{ route('logout') }}" method="post">
                                     @csrf
-                                    <button type="submit" style="border:0;padding:0;background:none;width:100%">
-                                            <i class="fa fa-power-off"></i>
-                                            &nbsp;@lang('dashboard.logout')
+                                    <button type="submit"
+                                            style="cursor:pointer;border:0;padding:0;background:none;width:100%">
+                                        <i class="fa fa-power-off"></i>
+                                        &nbsp;@lang('dashboard.logout')
                                     </button>
                                 </form>
                             </li>
@@ -335,17 +342,17 @@
                         <a class="dropdown-item" href="{{ url('/locale/en') }}">
                             <i class="flag-icon flag-icon-us"></i>&nbsp;English
                         </a>
-                        <a class="dropdown-item" href="{{ url('/locale/pt') }}">
-                            <i class="flag-icon flag-icon-pt"></i>&nbsp;Português (PT)
-                        </a>
                         <a class="dropdown-item" href="{{ url('/locale/es') }}">
                             <i class="flag-icon flag-icon-es"></i>&nbsp;Espanol
                         </a>
-                        <a class="dropdown-item" href="{{ url('/locale/fr') }}">
-                            <i class="flag-icon flag-icon-fr"></i>&nbsp;Le français
-                        </a>
                         <a class="dropdown-item" href="{{ url('/locale/cn') }}">
                             <i class="flag-icon flag-icon-cn"></i>&nbsp;简体中文
+                        </a>
+                        <a class="dropdown-item" href="{{ url('/locale/ru') }}">
+                            <i class="flag-icon flag-icon-ru"></i>&nbsp;русский
+                        </a>
+                        <a class="dropdown-item" href="{{ url('/locale/fr') }}">
+                            <i class="flag-icon flag-icon-fr"></i>&nbsp;Le français
                         </a>
                         <a class="dropdown-item" href="{{ url('/locale/jp') }}">
                             <i class="flag-icon flag-icon-jp"></i>&nbsp;日本語
@@ -353,8 +360,8 @@
                         <a class="dropdown-item" href="{{ url('/locale/kr') }}">
                             <i class="flag-icon flag-icon-kr"></i>&nbsp;한국어
                         </a>
-                        <a class="dropdown-item" href="{{ url('/locale/ru') }}">
-                            <i class="flag-icon flag-icon-ru"></i>&nbsp;русский
+                        <a class="dropdown-item" href="{{ url('/locale/pt-PT') }}">
+                            <i class="flag-icon flag-icon-pt"></i>&nbsp;Português
                         </a>
                     </div>
                 </li>

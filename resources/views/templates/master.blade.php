@@ -101,7 +101,6 @@
 
 
 @stack('after-scripts')
-@stack('after-scripts')
 {{--ATTENTION:--}}
 {{----}}
 {{----}}

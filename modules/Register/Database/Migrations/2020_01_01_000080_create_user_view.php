@@ -48,7 +48,10 @@ SELECT
     u.active_at as active_at,
     u.created_at as create_at,
     u.updated_at as update_at,
-    u.deleted_at as deleted_at
+    u.deleted_at as deleted_at,
+    CASE WHEN u.access_profile = 'Superuser' THEN TRUE ELSE FALSE END AS is_superuser,
+    CASE WHEN u.access_profile = 'Admin' THEN TRUE ELSE FALSE END AS is_admin,
+    CASE WHEN u.access_profile != 'Superuser' AND u.access_profile != 'Admin' THEN TRUE ELSE FALSE END AS is_user
 FROM user as u
 INNER JOIN person as p ON p.user_id = u.id
 INNER JOIN membership as m ON m.person_id = p.id;

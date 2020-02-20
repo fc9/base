@@ -37,3 +37,7 @@ input.addEventListener('change', reset)
 input.addEventListener('keyup', reset)
 input.addEventListener('blur', validatePhone)
 form.addEventListener("submit", validatePhone)
+
+$('#registerform').submit(function () {
+    $(this).find('input[type=submit]').prop('disabled', true)
+})

@@ -11,14 +11,14 @@
 |
 */
 
-Route::get('/', 'HomeController@welcome')->name('welcome')->middleware('guest');
+Route::get('/', 'HomeController@home')->name('home')->middleware('guest');
 
 /** --------------------------------------------------------------------------
  *  Tool Routes
  *  ----------------------------------------------------------------------- */
 
-Route::group(['namespace' => 'Tool'], function () {
-    Route::get('locale/{locale}', 'LocalizationController@update');
+Route::group(['namespace' => 'Tool', 'middleware' => 'guest'], function () {
+    //Route::get('locale/{locale}', 'LocalizationController@update')->name('locale');
 
     Route::get('ajaxRequest', 'TestController@ajaxRequest');
     Route::post('ajaxRequest', 'TestController@ajaxRequestPost');
@@ -34,31 +34,33 @@ Route::group(['namespace' => 'Tool'], function () {
  *  Auth Routes
  *  ----------------------------------------------------------------------- */
 
-Route::group(['namespace' => 'Auth', 'middleware' => 'guest'], function () {
+Route::group(['namespace' => 'Auth'], function () {
 
     # LogIn Routes
-    Route::get('login', 'LoginController@showLoginForm')->name('login');
-    Route::post('login', 'LoginController@login');
-
-    Route::get('invitation/{indicator}', 'CheckEmailController@showCheckForm');
+    Route::get('login', 'LoginController@showLoginForm')->middleware('guest')->name('login');
+    Route::post('login', 'LoginController@login')->middleware('guest');
+    Route::post('logout', 'LoginController@logout')->middleware('auth')->name('logout');
+    Route::get('invitation/{indicator}', 'CheckEmailController@showCheckForm')->middleware('guest');
 
     # LogUp Routes
     Route::group(['prefix' => 'signup', 'as' => 'signup'], function () {
         # Step 1
-        Route::get('/', 'CheckEmailController@showCheckForm')->name('.check');
-        Route::post('/', 'CheckEmailController@check');
+        Route::get('/', 'CheckEmailController@showCheckForm')->middleware('guest')->name('.check');
+        Route::post('/', 'CheckEmailController@check')->middleware('guest');
         # Step 2
-        Route::get('register', 'RegisterController@showRegistrationForm')->name('.register');
-        Route::post('register', 'RegisterController@register');
+        Route::get('register', 'RegisterController@showRegistrationForm')->middleware('guest')->name('.register');
+        Route::post('register', 'RegisterController@register')->middleware('guest');
+        # Step 3
+        Route::get('confirm', 'EmailConfirmController@showConfirmForm')->middleware('auth')->name('.confirm');
+        Route::post('confirm', 'EmailConfirmController@confirm')->middleware('auth');
     });
 
-//    # Confirm Password Routes
-//    Route::get('confirm/{token?}', 'ConfirmPasswordController@showConfirmForm')->name('.confirm');
-//    Route::post('confirm', 'ConfirmPasswordController@confirm');
+    # Confirm Password Routes
+    Route::get('confirm/{token?}', 'ConfirmPasswordController@showConfirmForm')->middleware('guest')->name('.confirm');
+    Route::post('confirm', 'ConfirmPasswordController@confirm')->middleware('guest');
 
-    # Password Routes
-    Route::group(['prefix' => 'password', 'as' => 'password'], function () {
-        # Reset Password Routes
+    # Reset Password Routes
+    Route::group(['prefix' => 'password', 'as' => 'password', 'middleware' => 'guest'], function () {
         Route::get('reset', 'ForgotPasswordController@showLinkRequestForm')->name('.request');
         Route::post('email', 'ForgotPasswordController@sendResetLinkEmail')->name('.email');
         Route::get('reset/{token}', 'ResetPasswordController@showResetForm')->name('.reset');
@@ -66,8 +68,6 @@ Route::group(['namespace' => 'Auth', 'middleware' => 'guest'], function () {
     });
 
 });
-
-Route::post('logout', 'Auth\LoginController@logout')->name('logout')->middleware('auth');
 
 Route::group(['prefix' => 'signup', 'as' => 'signup', 'namespace' => 'Auth', 'middleware' => 'auth',], function () {
     # Step 3
@@ -133,7 +133,6 @@ Route::prefix('financeiro')->group(function () {
     })->name('dashboard.financeiro.solicitar-saque');
 });
 
-
 Route::prefix('voucher')->group(function () {
     Route::get('/admin', function () {
         return view('dashboard.voucher.voucher-admin');
@@ -195,145 +194,169 @@ Route::prefix('configuracoes')->group(function () {
  *  App Routes
  *  ----------------------------------------------------------------------- */
 
-Route::group(['prefix' => '{username}/', 'namespace' => 'Dashboard', 'as' => 'dashboard', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => '{username}/', 'namespace' => 'Dashboard', 'as' => 'dashboard', 'middleware' => 'auth'],
+    function () {
 
-    Route::get('/', 'HomeController@home')->name('.home');
+        Route::get('/', 'HomeController@home')->name('.home');
 
-    # Account Management
-    Route::group(['namespace' => 'Account', 'as' => '.account'], function () {
-        # Profile Management
-//        Route::get('profile', 'ProfileController@edit')->name('.profile');
-//        Route::post('profile', 'ProfileController@update');
-//        # Preferences Management
+        # Account Management
+        Route::group(['namespace' => 'Account', 'as' => '.account'], function () {
+            # Profile Management
+            Route::get('profile', 'ProfileController@edit')->name('.profile');
+            Route::post('profile', 'ProfileController@update');
+            Route::post('profile/update_avatar', 'ProfileController@updateAvatar');
+        # Preferences Management
 //        #Route::get('preferences', 'PreferencesController@edit')->name('.references');
 //        #Route::post('preferences', 'PreferencesController@update');
-//        # Security Management
+        # Security Management
 //        #Route::get('security', 'SecurityController@edit')->name('.security');
 //        #Route::post('security', 'SecurityController@update');
-    });
+        });
 
-    # Network Management
-    Route::group(['prefix' => 'network', 'namespace'=>'Network', 'as' => '.network'], function () {
+        # eCommerce Management
+        Route::group(['prefix' => 'ecommerce', 'namespace' => 'ECommerce', 'as' => '.ecommerce'], function () {
 
-//        Route::get('unilevel', 'UnilevelController@unilevel')->name('.unilevel');
+            Route::get('categories', 'ECommerceController@categories')->name('.categories');
+//        Route::get('categories', function () {
+//            return view('dashboard.ecommerce.categories');
+//        })->name('.categories');
+
+            Route::get('products', 'ECommerceController@products')->name('.products');
+//        Route::get('products', function () {
+//            return view('dashboard.ecommerce.products');
+//        })->name('.products');
+
+            Route::get('orders', 'ECommerceController@orders')->name('.orders');
+
+            Route::get('my_orders', 'ECommerceController@myOrders')->name('.my_orders');
+//        Route::get('my_orders', function () {
+//            return view('dashboard.ecommerce.my_orders');
+//        })->name('.my_orders');
+
+            //Route::post('checkout', 'StoreController@checkout')->name('.checkout');
+
+        });
+
+        # Finances
+        Route::group(['prefix' => 'finances', 'namespace' => 'Finances', 'as' => '.finances'], function () {
+
+            Route::post('transactions', 'StratumController@transactions')->name('.transactions');
+//        Route::get('credito-debito', function () {
+//            return view('dashboard.financeiro.credito-debito');
+//        })->name('dashboard.financeiro.credito-debito');
+
+            Route::post('history', 'StratumController@financialHistory')->name('.history');
+//        Route::get('historico-financeiro', function () {
+//            return view('dashboard.financeiro.historico-financeiro');
+//        })->name('dashboard.financeiro.historico-financeiro');
+
+            Route::post('withdraw/manage', 'WithdrawController@toManage')->name('.withdraw.manage');
+//        Route::get('gerenciar-saque', function () {
+//            return view('dashboard.financeiro.gerenciar-saque');
+//        })->name('dashboard.financeiro.gerenciar-saque');
+
+            Route::post('balance', 'StratumController@balance')->name('.balance');
+//        Route::get('historico-financeiro', function () {
+//            return view('dashboard.financeiro.historico-financeiro');
+//        })->name('dashboard.financeiro.historico-financeiro');
+
+            Route::post('widthdraw/history', 'WithdrawController@history')->name('.widthdraw.history');
+//        Route::get('historico-saque', function () {
+//            return view('dashboard.financeiro.historico-saque');
+//        })->name('dashboard.financeiro.historico-saque');
+
+            Route::post('withdraw/request', 'WithdrawController@request')->name('.withdraw.request');
+//        Route::get('solicitar-saque', function () {
+//            return view('dashboard.financeiro.solicitar-saque');
+//        })->name('dashboard.financeiro.solicitar-saque');
+
+        });
+
+        # Voucher
+        Route::group(['prefix' => 'vouchers', 'as' => '.vouchers'], function () {
+
+            //Route::post('admin', 'VoucherController@request')->name('.admin');
+//        Route::get('/admin', function () {
+//            return view('dashboard.voucher.voucher-admin');
+//        })->name('dashboard.voucher.voucher-admin');
+            //Route::post('/', 'VoucherController@request')->name('.voucher');
+//        Route::get('/', function () {
+//            return view('dashboard.voucher.voucher');
+//        })->name('dashboard.voucher.voucher');
+
+        });
+
+        # Network Management
+        Route::group(['prefix' => 'network', 'namespace' => 'Network', 'as' => '.network'], function () {
+
+            Route::get('unilevel', 'UnilevelController@unilevel')->name('.unilevel');
 //        Route::get('unilevel', function () {
 //            return view('dashboard.rede.unilevel');
 //        })->name('.unilevel');
 
-        # Route::get('binary/strategy', 'BinaryController@strategy')->name('.strategy'); # Fora do projeto
-//        Route::get('binary/strategy', function () {
-//            return view('dashboard.rede.binario');
-//        })->name('.binary.strategy');
-
-//        Route::get('binary', 'BinaryController@binary')->name('.binary');
+            Route::get('binary', 'BinaryController@binary')->name('.binary');
 //            Route::get('binario', function () {
 //                return view('dashboard.rede.binario');
 //            })->name('.binario');
 //        Route::post('workleg', 'BinaryController@workLeg')->name('.workleg');
 
-//        Route::get('career_history', 'NetworkController@careerHistory')->name('.career_history');
+            Route::get('binary/strategy', 'BinaryController@strategy')->name('.strategy'); # Fora do projeto
+//        Route::get('binary/strategy', function () {
+//            return view('dashboard.rede.binario');
+//        })->name('.binary.strategy');
+
+            Route::get('career_history', 'NetworkController@careerHistory')->name('.career_history');
 //        Route::get('career_history', function () {
 //            return view('dashboard.rede.historico-carreira');
 //        })->name('.career_history');
 
-    });
+        });
 
-    # eCommerce
-    Route::group(['prefix' => 'ecommerce', 'as' => '.ecommerce'], function () {
-//
-//        Route::get('categories', function () {
-//            return view('dashboard.ecommerce.categories');
-//        })->name('.categories');
-//
-//        Route::get('products', function () {
-//            return view('dashboard.ecommerce.products');
-//        })->name('.products');
-//
-//        Route::get('orders', 'ECommerceController@orders')->name('.orders');
-//
-//        Route::get('my_orders', function () {
-//            return view('dashboard.ecommerce.my_orders');
-//        })->name('.my_orders');
-//
-//        Route::post('checkout', 'StoreController@checkout')->name('.checkout');
-//
-    });
+        # Pontuação
+        Route::group(['prefix' => 'score', 'namespace' => 'Score', 'as' => '.score'], function () {
 
-    # Finances
-    Route::group(['prefix' => 'finances', 'namespace'=>'Finances', 'as' => '.finances'], function () {
-//    Route::prefix('financeiro')->group(function () {
-//        # Credit and Debit
-//        Route::post('transactions', 'StratumController@transactions')->name('.transactions');
-//        Route::get('credito-debito', function () {
-//            return view('dashboard.financeiro.credito-debito');
-//        })->name('dashboard.financeiro.credito-debito');
-//
-//        Route::post('history', 'StratumController@financialHistory')->name('.history');
-//        Route::get('historico-financeiro', function () {
-//            return view('dashboard.financeiro.historico-financeiro');
-//        })->name('dashboard.financeiro.historico-financeiro');
-//
-//        Route::post('withdraw/manage', 'WithdrawController@toManage')->name('.withdraw.manage');
-//        Route::get('gerenciar-saque', function () {
-//            return view('dashboard.financeiro.gerenciar-saque');
-//        })->name('dashboard.financeiro.gerenciar-saque');
-//
-//        Route::post('widthdraw/history', 'WithdrawController@history')->name('.widthdraw.history');
-//        Route::get('historico-saque', function () {
-//            return view('dashboard.financeiro.historico-saque');
-//        })->name('dashboard.financeiro.historico-saque');
-//
-//        Route::post('withdraw/request', 'WithdrawController@request')->name('.withdraw.request');
-//        Route::get('solicitar-saque', function () {
-//            return view('dashboard.financeiro.solicitar-saque');
-//        })->name('dashboard.financeiro.solicitar-saque');
-    });
-
-    # Voucher
-    Route::prefix('voucher')->group(function () {
-//        Route::get('/admin', function () {
-//            return view('dashboard.voucher.voucher-admin');
-//        })->name('dashboard.voucher.voucher-admin');
-//        Route::get('/', function () {
-//            return view('dashboard.voucher.voucher');
-//        })->name('dashboard.voucher.voucher');
-    });
-//
-    # Pontuação
-    Route::prefix('pontuacao')->group(function () {
+//            Route::get('qualification', 'ScoreController@qualification')->name('.qualification');
 //        Route::get('qualificacao', function () {
 //            return view('dashboard.pontuacao.qualificacao');
 //        })->name('dashboard.pontuacao.qualificacao');
-//
+
+//            Route::get('commission', 'ScoreController@commission')->name('.commission');
 //        Route::get('comissao', function () {
 //            return view('dashboard.pontuacao.comissao');
 //        })->name('dashboard.pontuacao.comissao');
-//
+
+//            Route::get('pool', 'ScoreController@pool')->name('.pool');
 //        Route::get('pool-point', function () {
 //            return view('dashboard.pontuacao.pool-point');
 //        })->name('dashboard.pontuacao.pool-point');
-    });
 
-    # Admin
-    Route::prefix('admin')->group(function () {
+        });
+
+        # Admin
+        Route::group(['prefix' => 'management', 'namespace' => 'Management', 'as' => '.management'], function () {
+
+//            Route::get('users', 'ManagementController@users')->name('.users');
 //        Route::get('usuario', function () {
 //            return view('dashboard.admin.usuario');
 //        })->name('dashboard.admin.usuario');
 //
+//            Route::get('activity_report', 'ManagementController@activityReport')->name('.activity_report');
 //        Route::get('relatorio-atividade', function () {
 //            return view('dashboard.admin.relatorio-atividade');
 //        })->name('dashboard.admin.relatorio-atividade');
 //
+//            Route::get('document_approval', 'ManagementController@documentApproval')->name('.document_approval');
 //        Route::get('aprovar-documento', function () {
 //            return view('dashboard.admin.aprovar-documento');
 //        })->name('dashboard.admin.aprovar-documento');
-    });
 
-    # Configurações
-    Route::prefix('configuracoes')->group(function () {
+        });
+
+        # Configurações
+        Route::prefix('configuration')->group(function () {
 //        Route::get('emails', function () {
 //            return view('dashboard.configuracoes.emails');
 //        })->name('dashboard.configuracoes.emails');
-    });
+        });
 
-});
+    });

@@ -30,9 +30,9 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Route::pattern('locale', config('register.pattern.route.locale'));
+        Route::pattern('locale', '[a-z\-A-Z]+');
 
-        $pattern = config('register.pattern.route.username');
+        $pattern = '[0-9a-zA-Z._]+';
         Route::pattern('username', $pattern);
         Route::pattern('indicator', $pattern);
 

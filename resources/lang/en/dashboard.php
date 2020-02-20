@@ -3,7 +3,7 @@
 return [
 
     'language' => 'English', #
-    'hello' => 'Hello', # Olá
+    'hello' => 'Hello :name', # Olá
     'left' => 'Left', # Esquerda
     'right' => 'Right', # Direita
     'admin' => 'Admin', # Admin
@@ -12,6 +12,17 @@ return [
     'search' => 'Search', # Pesquisar
     'user' => 'User', # Usuário
     'name' => 'Name', # Nome
+    'email' => 'Email', # Nome
+    'phone' => 'Phone', # Telefone
+    'skype' => 'skype', # Skype
+    'address'=> 'Address', # Endereço
+    'zip_code' => 'Zip Code', # CEP
+    'street' => 'Street', # Logradouro
+    'complement' => 'Complement', # Complemento
+    'sector' => 'Sector', # Bairro
+    'city' => 'City', # Cidade
+    'state' => 'State', # Estado
+    'country' => 'Country', # País
     'network' => 'Network', # Rede
     'unilevel' => 'Unilevel', # Unilevel
     'binary' => 'Binary', # Binário
@@ -19,16 +30,40 @@ return [
     'active' => 'Active', # Ativo
     'unactive' => 'Unactive', # Desativo
     'disqualified' => 'Disqualified', # Desqualificado
+    'in_process' => 'In process', # Em processo
+    'pending' => 'Pending', # Pendente
+    'approved' => 'Approved', # Aprovada
     'account' => 'Account', # Conta
     'basic' => 'Basic', # Basic
     'vision' => 'Vision', # Vision
     'advance' => 'Advance', # Advance
+    'manager' => 'Management', # Gerenciar
+    'document_id' => 'Document Id', # Id do Documento
+    'documentation' => 'Documentation' , # Documentação
+    'password' => 'Password', # Senha
+    'register' => 'Register', # Cadastrar
+    'copy' => 'Copy', # Copiar
+    'logout' => 'Logout', # Sair
+    'edit' => 'Edit', # Editar
+    'update' => 'Update', # Atualizar
+    'update_profile' => 'Update Profile', # Atualizar Perfil
+    'change_password' => 'Change Password' , # Alterar Senha
+    'current_password' => 'Current Password' , # Senha Atual
+    'new_password' => 'New Password' , # Nova Senha
+    'repeat_new_password' => 'Repeat New Password' , # Repetir Nova Senha
+    'update_password' => 'Update Password' , # Atualizar Senha
+    'remove' => 'Remove', # Remover
+    'delete' => 'Delete', # Excluir
+    'view_profile' => 'View Profile', # Ver Perfil
+    'my_profile' => 'My Profile', # Meu Perfil
+    'personal_information' => 'Personal information', # Informações Pessoais
+    'safety' => 'Safety', # Segurança
 
     /** **********************************************************************
      * Menu (app.templates.left-sidebar)
      * ******************************************************************** */
 
-    'header' => 'Dashboard',
+    'dashboard' => 'Dashboard',
 
     'ecommerce' => 'E-commerce', # E-commerce
     'orders.title' => 'Orders Report', # Relatório de Pedidos
@@ -68,11 +103,7 @@ return [
      * ******************************************************************** */
 
     'link_invitation' => 'Referral link', # Link de Indicação
-    'copy_link' => 'Copy link', # Copiar link
-    'logout' => 'Logout', # Sair
     'logout_message' => 'Click to exit Backoffice.', # Clique para saur do Backoffice.
-    'view_profile' => 'View Profile', # Ver Perfil
-    'my_profile' => 'My Profile', # Meu Perfil
     'month' => 'month', # mês
     'courses_title' => 'COURSES', # CURSOS
     'course_basic' => 'BASIC', # BASIC
@@ -99,12 +130,21 @@ return [
     'buy' => 'Buy', #
 
     /** **********************************************************************
+     * Footer (templates.footer)
+     * ******************************************************************** */
+
+    'contact' => 'CONTACT', # CONTATO
+    'email@' => 'contact@empireasy.com', # contact@empireasy.com
+    'company_headquarters' => 'COMMERCIAL HEADQUARTERS', # SEDE COMERCIAL
+    'panama_city' => 'Panamá City', # Panamá City
+
+    /** **********************************************************************
      * App > Home (app.home)
      * ******************************************************************** */
 
     'total_registered' => 'Total Registered', # Total Cadastro
     'active_registrants' => 'Active Registrants', # Cadastros Ativos
-    'total_orders'=>'Total orders', # Total de Pedidos
+    'total_orders' => 'Total orders', # Total de Pedidos
     'total_paid_orders' => 'Total Paid Orders', # Total de Pedidos Pagos
     'direct_commission_bonus' => 'Direct Commission Bonus', # Bônus Comissão Direta
     'pool_trading_bonus' => 'Pool Trading Bonus', # Bônus Pool Trading
@@ -119,21 +159,15 @@ return [
 
     'profile_title' => 'My Profile', # Meu Perfil
     'login_as_user' => 'Login as user', # Logar como usuário
-    '' => 0, #
-    '' => 0, #
-    '' => 0, #
-    '' => 0, #
-    '' => 0, #
-    '' => 0, #
-    '' => 0, #
-    '' => 0, #
-    '' => 0, #
-    '' => 0, #
-    '' => 0, #
-    '' => 0, #
-    '' => 0, #
-    '' => 0, #
-    '' => 0, #
+    'registration_date' => 'Registration Date', # Data de registro
+    'date_of_birth' => 'Data de Nascimento', #
+    'wallet_for_withdrawal' => 'Wallet for withdrawal', # Carteira para recebimento de saque
+    'confirmation_to_wallet_registration' => 'Confirmation in your email is required to complete your wallet registration process.', # É necessário a confirmação em seu email para concluir o processo de cadastramento de sua carteira.
+    'update_image' => 'Image Upload Successfully!', # Imagem atualizada com Sucesso!
+    '' => '', #
+    '' => '', #
+    '' => '', #
+    '' => '', #
 
     /** **********************************************************************
      * app.network.binary
@@ -148,5 +182,4 @@ return [
     'see_my_node' => 'See my node.', // Ver meu nó
     'show_generation_above' => 'Show generation above.', // Ver uma geração acima
     'balanced' => 'Balanced', // Balanciado
-
 ];

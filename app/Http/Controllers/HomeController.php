@@ -7,11 +7,9 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function welcome()
+    public function home()
     {
-        dd('?');
-        LoginController::logout();
-        //return redirect()->route('login');
+        return redirect()->route('login');
         //return view('welcome');
     }
 }

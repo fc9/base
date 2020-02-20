@@ -49,11 +49,11 @@ class RegisterRequest extends AbstractFormRequest
         $pattern = config('register.pattern.username');
 
         return [
-            'indicator' => ['bail', 'required', 'min:6', 'max:18', 'regex:' . $pattern, new Qualified()],
+            'indicator' => ['bail', 'required', 'min:5', 'max:18', 'regex:' . $pattern, new Qualified()],
             'email' => 'bail|required|max:90|email|unique:user',
             'firstname' => 'required|min:3|max:18|string',
             'lastname' => 'min:3|max:45|string',
-            'username' => 'required|min:6|max:18|string|bail|regex:' . $pattern . '|unique:user',
+            'username' => 'required|min:5|max:18|string|bail|regex:' . $pattern . '|unique:user',
             'password' => 'required|min:8|max:24|string',
             'country' => 'required|max:2',
             'phone' => 'required|min:7|max:15',

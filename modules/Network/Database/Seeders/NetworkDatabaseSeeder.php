@@ -14,8 +14,9 @@ class NetworkDatabaseSeeder extends Seeder
      */
     public function run()
     {
-        Model::unguard();
-
-        // $this->call("OthersTableSeeder");
+        #Model::unguard();
+        $this->call(NodeTableSeeder::class);
+        $this->call(NodeUnilevelTableSeeder::class);
+        $this->call(NodeBinaryTableSeeder::class);
     }
 }

@@ -19,47 +19,7 @@
 
 @section('template-custom-js')
     <script src="/vendor/wrappixel/monster-admin/4.2.1/monster/js/custom.min.js"></script>
-    <script>
-        $('#submit').prop("disabled", true)
-        $('#submit').css("border", 0)
-        $('#submit').css("background-color", "lightgray")
-
-        var fullToken = function () {
-            /* Enable submit button */
-            let length = $('#type1').val().length
-                + $('#type2').val().length
-                + $('#type3').val().length
-                + $('#type4').val().length
-                + $('#type5').val().length
-            $('#submit').prop("disabled", length !== 5)
-            $('#submit').css("background-color", length !== 5 ? "lightgray" : "#009efb")
-            return length === 5
-        }
-
-        $(':input').keyup(function () {
-            /* Uppercase values */
-            $(this).val(function () {
-                return this.value.toUpperCase()
-            })
-            /* Move on to the next */
-            if ($(this).val().length > 0)
-                $(this).next(':input').focus()
-            fullToken()
-        })
-
-        $('#confirmform').submit(function (event) {
-            if (!fullToken()) {
-                event.preventDefault()
-                return
-            }
-            $(this).prop('disabled', true)
-            $(this).css("background-color", "lightgray")
-            $('#token').val(function () {
-                return $('#type1').val() + $('#type2').val() + $('#type3').val() + $('#type4').val() + $('#type5').val()
-            });
-            return
-        })
-    </script>
+    <script src="/js/auth/confirm_email.js"></script>
 @endsection
 
 @section('layout-content')
@@ -133,11 +93,10 @@
                                 <div class="col-sm-12" style="padding:0">
                                     <br>
                                     <p>
-                                        {{--
-                                        <a href="{{ route('login') }}" class="text-info ml-1">
-                                            <b>{{ __('auth.have_an_account') }}</b>
+                                        <a href="{{ route('dashboard.home', ['username' => auth()->user()->username]) }}"
+                                           class="text-info ml-1">
+                                            <b>{{ __('auth.confirm_email_later') }}</b>
                                         </a>
-                                        ---}}
                                     </p>
                                 </div>
                             </div>

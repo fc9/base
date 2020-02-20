@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Tool;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Session;
+use App\Http\Middleware\Localize;
+use Illuminate\Support\Facades\Lang;
 
 class LocalizationController extends Controller
 {
@@ -14,8 +14,8 @@ class LocalizationController extends Controller
      */
     public function update($locale)
     {
-        App::setLocale($locale);
-        Session::put('locale', $locale);
+        Localize::set($locale);
+
         return redirect()->back();
     }
 }

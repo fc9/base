@@ -1,6 +1,6 @@
 @extends('templates.main')
 
-@section('title', __('dashboard.hello') . ' ' . auth()->user()->username)
+@section('title', __('dashboard.hello', ['name'=>$user->username]))
 
 @push('after-styles')
     <!-- chartist CSS -->

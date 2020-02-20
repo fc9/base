@@ -11,11 +11,7 @@
 
 @section('template-custom-js')
     <script src="/vendor/wrappixel/monster-admin/4.2.1/monster/js/custom.min.js"></script>
-    <script>
-        $('#checkform').submit(function(){
-            $(this).find('input[type=submit]').prop('disabled', true)
-        })
-    </script>
+    <script src="/js/auth/check.js"></script>
 @endsection
 
 @section('layout-content')
@@ -53,7 +49,7 @@
                                        name="indicator{{ $indicator !== '' ? '_readonly' : '' }}"
                                        class="form-control btn-lg text-center @error('indicator') is-invalid @enderror"
                                        value="{{ $indicator !== '' ? $indicator : old('indicator') }}"
-                                    {{ $indicator !== '' ? 'readonly=""' : '' }}>
+                                        {{ $indicator !== '' ? 'readonly=""' : '' }}>
                                 @if($indicator !== '')
                                     <input type="hidden" name="indicator" value="{{$indicator}}">
                                 @endif
@@ -90,7 +86,7 @@
                         </div>
                         <div class="form-group text-center mt-3">
                             <div class="col-xs-12">
-                                <button type="submit" class="btn btn-info btn-lg btn-block text-uppercase"
+                                <button type="submit" class="btn btn-info btn-lg btn-block text-uppercase" id="submit"
                                         style="width:calc(100% - 3.2rem)">
                                     @lang('auth.go')
                                 </button>
@@ -108,7 +104,7 @@
                                     <br>
                                     <p>
                                         <a href="{{ route('login') }}" class="text-info ml-1">
-                                            <b>{{ __('auth.have_an_account') }}</b>
+                                            <b>@lang('auth.have_an_account')</b>
                                         </a>
                                     </p>
                                 </div>

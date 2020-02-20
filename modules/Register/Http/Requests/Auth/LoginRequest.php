@@ -40,7 +40,7 @@ class LoginRequest extends AbstractFormRequest
     public function rules()
     {
         return [
-            'username' => 'bail|required|min:6|max:18|string|exists:user',
+            'username' => 'bail|required|min:5|max:18|string|exists:user',
             'password' => 'bail|required|min:8|max:24|string',
         ];
     }

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Modules\Register\Emails\EmailConfirmEmail;
+use \Modules\Register\Jobs\EmailConfirmJob;
 
 class EmailConfirm extends Model
 {
@@ -32,7 +33,6 @@ class EmailConfirm extends Model
         self::destroy($email);
         self::create(compact('email', 'token'));
 
-        # TODO: Send with job.
-        Mail::to($email)->send(new EmailConfirmEmail($token));
+        dispatch(new EmailConfirmJob($email, $token));
     }
 }

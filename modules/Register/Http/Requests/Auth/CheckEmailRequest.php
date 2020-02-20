@@ -43,7 +43,7 @@ class CheckEmailRequest extends AbstractFormRequest
         $pattern = config('register.pattern.username');
 
         return [
-            'indicator' => ['bail', 'required', 'min:6', 'max:18', 'regex:' . $pattern, new Qualified()],
+            'indicator' => ['bail', 'required', 'min:5', 'max:18', 'regex:' . $pattern, new Qualified()],
             'email' => 'bail|required|max:90|email|unique:user',
         ];
     }
