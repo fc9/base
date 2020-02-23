@@ -6,8 +6,8 @@ return [
     'fullname' => 'Base App',
     'logo' => '/images/template/logo-base.svg', #dontTranslate
 
-    'lang' => 'es',
-    'language' => 'Español',
+    'lang' => 'es-AR',
+    'language' => 'Español argentino',
     'country-code' => 'AR',
     'country-name' => 'Argentina',
     'class-flag-icon' => 'flag-icon-ar', #dontTranslate

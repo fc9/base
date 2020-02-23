@@ -41,7 +41,7 @@
                         <input type="hidden" name="email" value="{{ $email }}">
                         <input type="hidden" name="agree_to_terms" value="{{ $agree_to_terms }}">
                         <a href="javascript:void(0)" class="text-center db mb-3">
-                            <img src="@lang('auth.logo')" alt="{{ env('APP_NAME') }}" width="auto" height="45px"/>
+                            <img src="@lang('app.logo')" alt="{{ env('APP_NAME') }}" width="auto" height="45px"/>
                         </a>
                         <h3 class="text-center" style="font-weight:700">@lang('auth.enter_your_details')</h3>
                         <div class="form-group">

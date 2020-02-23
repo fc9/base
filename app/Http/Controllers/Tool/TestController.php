@@ -33,6 +33,8 @@ class TestController extends Controller
 
     public function confirmTest()
     {
-        return view('auth.confirm_email', ['title'=>'Confirm', 'step' => 3, 'email' => 'fabio@mail.com']);
+        $user = (object)['username' => 'fabioc'];
+        return view('auth.confirm_email',
+            ['title' => 'Confirm', 'step' => 3, 'email' => 'fabio@mail.com', 'user' => $user]);
     }
 }

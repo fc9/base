@@ -14,7 +14,7 @@ class StateTableSeeder extends Seeder
      */
     public function run()
     {
-        //$this->ar(); # Argentina
+        //$this->es-AR(); # Argentina
         //$this->br(); # Brasil
         //$this->us(); # United States of American
     }

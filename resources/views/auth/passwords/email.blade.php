@@ -21,7 +21,7 @@
                           id="emailform" role="form">
                         @csrf
                         <a href="javascript:void(0)" class="text-center db mb-3">
-                            <img src="@lang('auth.logo')" alt="{{ env('APP_NAME') }}" width="auto" height="45px"/>
+                            <img src="@lang('app.logo')" alt="{{ env('APP_NAME') }}" width="auto" height="45px"/>
                         </a>
                         <h3 class="text-center" style="font-weight:700">@lang('auth.forgot_password')</h3>
                         <p class="text-muted">{{ __('auth.forgot_password_instructions') }}</p>
@@ -35,9 +35,9 @@
                                             @endforeach
                                         </ul>
                                     </div>
-                                @else
+                                @elseif(session()->has('status'))
                                     <div class="alert alert-success">
-                                        @lang('auth.email_sent')
+                                        {{ session()->get('status') }}
                                     </div>
                                 @endif
                             </div>
@@ -48,7 +48,7 @@
                                        placeholder="@lang('auth.label_email')" autocomplete="off"
                                        title="@lang('auth.label_email')" name="email"
                                        class="form-control btn-lg text-center" value="{{ old('email') }}">
-                                {{--@error('username')
+                                {{--@error('email')
                                 <div class="invalid-feedback">
                                     {{ $message }}
                                 </div>

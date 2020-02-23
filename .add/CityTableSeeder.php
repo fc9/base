@@ -16,7 +16,7 @@ class CityTableSeeder extends Seeder
     {
         City::create(['country_iso_code' => '00', 'full_name' => 'Digital Nomad']);
 
-        //$this->ar();
+        //$this->es-AR();
         //$this->br();
     }
 

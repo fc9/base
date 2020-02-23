@@ -7406,7 +7406,7 @@
                 cy = +a.cy,
                 rx = +a.rx || +a.r || 0,
                 ry = +a.ry || +a.r || 0;
-            node.path = R.format("ar{0},{1},{2},{3},{4},{1},{4},{1}x", round((cx - rx) * zoom), round((cy - ry) * zoom), round((cx + rx) * zoom), round((cy + ry) * zoom), round(cx * zoom));
+            node.path = R.format("es-AR{0},{1},{2},{3},{4},{1},{4},{1}x", round((cx - rx) * zoom), round((cy - ry) * zoom), round((cx + rx) * zoom), round((cy + ry) * zoom), round(cx * zoom));
             o._.dirty = 1;
         }
         if ("clip-rect" in params) {

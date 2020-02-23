@@ -33,10 +33,10 @@
                         @csrf
                         <input type="hidden" name="token" value="00000" id="token">
                         <a href="javascript:void(0)" class="text-center db mb-3">
-                            <img src="@lang('auth.logo')" alt="{{ env('APP_NAME') }}" width="auto" height="45px"/>
+                            <img src="@lang('app.logo')" alt="{{ env('APP_NAME') }}" width="auto" height="45px"/>
                         </a>
-                        <h3 class="text-center"
-                            style="font-weight:700">@lang('auth.enter_code_sendded', ['email' => $email])</h3>
+                        <h4 class="text-center"
+                            style="font-weight:700">@lang('auth.enter_code_sendded', ['email' => $email])</h4>
                         <div class="form-group">
                             <div class="col-xs-12">
                                 @if ($errors->any())
@@ -88,12 +88,13 @@
                                 {{--@include('templates.components.dropdown-lang')--}}
                             </div>
                         </div>
-                        @if (Route::has('login'))
+                        {{--
+                        @if (Route::has('dashboard.home'))
                             <div class="form-group" style="margin:3vh 0 0">
                                 <div class="col-sm-12" style="padding:0">
                                     <br>
                                     <p>
-                                        <a href="{{ route('dashboard.home', ['username' => auth()->user()->username]) }}"
+                                        <a href="{{ route('dashboard.home', ['username' => $user->username]) }}"
                                            class="text-info ml-1">
                                             <b>{{ __('auth.confirm_email_later') }}</b>
                                         </a>
@@ -101,6 +102,7 @@
                                 </div>
                             </div>
                         @endif
+                        --}}
                     </form>
                 </div>
             </div>

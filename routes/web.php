@@ -28,6 +28,7 @@ Route::group(['namespace' => 'Tool', 'middleware' => 'guest'], function () {
     Route::get('config2object', 'TestController@config2Objectt');
 
     Route::get('confirmtest', 'TestController@confirmTest');
+
 });
 
 /** --------------------------------------------------------------------------
@@ -61,7 +62,7 @@ Route::group(['namespace' => 'Auth'], function () {
 
     # Reset Password Routes
     Route::group(['prefix' => 'password', 'as' => 'password', 'middleware' => 'guest'], function () {
-        Route::get('reset', 'ForgotPasswordController@showLinkRequestForm')->name('.request');
+        Route::get('request', 'ForgotPasswordController@showLinkRequestForm')->name('.request');
         Route::post('email', 'ForgotPasswordController@sendResetLinkEmail')->name('.email');
         Route::get('reset/{token}', 'ResetPasswordController@showResetForm')->name('.reset');
         Route::post('reset', 'ResetPasswordController@reset')->name('.update');

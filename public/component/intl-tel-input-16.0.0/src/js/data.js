@@ -63,7 +63,7 @@ var allCountries = [
   ],
   [
     "Argentina",
-    "ar",
+    "es-AR",
     "54"
   ],
   [

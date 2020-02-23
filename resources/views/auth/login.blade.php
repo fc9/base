@@ -1,22 +1,14 @@
 @extends('templates.master')
 
-@section('title', config('app.name'))
+@section('title', __('app.shortname'))
 
 @section('template-css')
-    <!-- toast CSS -->
     <link href="/css/monster/style.css" rel="stylesheet">
 @endsection
 
 @section('template-custom-js')
     <script src="/vendor/wrappixel/monster-admin/4.2.1/monster/js/custom.min.js"></script>
-    <script>
-        $(function () {
-            $("#back-to-login").click(function () {
-                $("#loginform").slideDown()
-                $("#recoverform").fadeOut()
-            })
-        })
-    </script>
+    <script src="/js/auth/login.js"></script>
 @endsection
 
 @section('layout-content')
@@ -29,7 +21,7 @@
                           method="post">
                         @csrf
                         <a href="javascript:void(0)" class="text-center db mb-3">
-                            <img src="@lang('app.logo')" alt="{{ env('APP_NAME') }}" width="auto" height="45px"/>
+                            <img src="@lang('app.logo')" alt="@lang('app.fullname')" width="auto" height="45px"/>
                         </a>
                         <h3 class="text-center" style="font-weight:700">@lang('auth.begin_session')</h3>
                         <div class="form-group">
@@ -91,26 +83,24 @@
                                 @include('templates.components.dropdown-lang')
                             </div>
                         </div>
-                        @if (Route::has('login'))
-                            <div class="form-group mb-0">
-                                <div class="col-sm-12">
-                                    @if (Route::has('password.request'))
-                                        <p>
-                                            <a href="{{ route('password.request') }}" class="text-info ml-1">
-                                                <b>@lang('auth.cant_login')</b>
-                                            </a>
-                                        </p>
-                                    @endif
-                                    @if (Route::has('signup.check'))
-                                        <p>
-                                            <a href="{{ route('signup.check') }}" class="text-info ml-1">
-                                                <b>@lang('auth.create_account2')</b>
-                                            </a>
-                                        </p>
-                                    @endif
-                                </div>
+                        <div class="form-group mb-0">
+                            <div class="col-sm-12">
+                                @if (Route::has('password.request'))
+                                    <p>
+                                        <a href="{{ route('password.request') }}" class="text-info ml-1">
+                                            <b>@lang('auth.cant_login')</b>
+                                        </a>
+                                    </p>
+                                @endif
+                                @if (Route::has('signup.check'))
+                                    <p>
+                                        <a href="{{ route('signup.check') }}" class="text-info ml-1">
+                                            <b>@lang('auth.create_account2')</b>
+                                        </a>
+                                    </p>
+                                @endif
                             </div>
-                        @endif
+                        </div>
                     </form>
                 </div>
             </div>

@@ -13,10 +13,10 @@ return [
     |
     */
 
-    'reset' => 'Sua senha foi redefinida!',
-    'sent' => 'Enviamos seu link de redefinição de senha por e-mail!',
-    'throttled' => 'Muitos envios de email. Aguarde antes de tentar novamente.',
-    'token' => 'Este token de redefinição de senha é inválido.',
-    'user' => "Não conseguimos encontrar um usuário com esse endereço de e-mail.",
+    'reset' => '¡Su contraseña ha sido restablecida!',
+    'sent' => '¡Enviamos su enlace de restablecimiento de contraseña por correo electrónico!',
+    'throttled' => 'Se han enviado demasiados correos electrónicos. Espera antes de intentarlo de nuevo.',
+    'token' => 'Este token de restablecimiento de contraseña no es válido',
+    'user' => "No pudimos encontrar un usuario con esa dirección de correo electrónico",
 
 ];

@@ -3,8 +3,6 @@
 @section('title', config('app.name'))
 
 @section('template-css')
-    <link href="/vendor/wrappixel/monster-admin/4.2.1/assets/plugins/toast-master/css/jquery.toast.css"
-          rel="stylesheet">
     <link href="/css/monster/style.css" rel="stylesheet">
     <link rel="stylesheet" href="/component/progress-bar.css">
 @endsection
@@ -25,7 +23,7 @@
                         @csrf
                         <br>
                         <a href="javascript:void(0)" class="text-center db mb-3">
-                            <img src="@lang('auth.logo')" alt="{{ env('APP_NAME') }}" width="auto" height="45px"/>
+                            <img src="@lang('app.logo')" alt="{{ env('APP_NAME') }}" width="auto" height="45px"/>
                         </a>
                         <h3 class="text-center" style="font-weight:700">@lang('auth.create_account')</h3>
                         <div class="form-group">
