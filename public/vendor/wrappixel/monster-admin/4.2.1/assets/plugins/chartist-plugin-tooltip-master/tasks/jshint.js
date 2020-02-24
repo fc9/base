@@ -17,14 +17,14 @@ module.exports = function (grunt) {
     },
     all: [
       'Gruntfile.js',
-      '<%= pkg.config.src %>/{,*/}*.js',
-      '<%= pkg.config.site %>/scripts/{,*/}*.js'
+      '<%= pkg.Config.src %>/{,*/}*.js',
+      '<%= pkg.Config.site %>/scripts/{,*/}*.js'
     ],
     test: {
       options: {
-        jshintrc: '<%= pkg.config.test %>/.jshintrc'
+        jshintrc: '<%= pkg.Config.test %>/.jshintrc'
       },
-      src: ['<%= pkg.config.test %>/spec/{,*/}*.js']
+      src: ['<%= pkg.Config.test %>/spec/{,*/}*.js']
     }
   };
 };

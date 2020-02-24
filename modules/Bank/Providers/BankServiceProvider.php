@@ -32,17 +32,17 @@ class BankServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register config.
+     * Register Config.
      *
      * @return void
      */
     protected function registerConfig()
     {
         $this->publishes([
-            module_path('Bank', 'Config/config.php') => config_path('bank.php'),
-        ], 'config');
+            module_path('Bank', 'Config/Config.php') => config_path('bank.php'),
+        ], 'Config');
         $this->mergeConfigFrom(
-            module_path('Bank', 'Config/config.php'), 'bank'
+            module_path('Bank', 'Config/Config.php'), 'bank'
         );
     }
 

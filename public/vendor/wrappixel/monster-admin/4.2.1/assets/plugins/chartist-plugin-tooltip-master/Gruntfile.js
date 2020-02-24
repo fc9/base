@@ -15,7 +15,7 @@ module.exports = function (grunt) {
   require('time-grunt')(grunt);
 
   // load task and configurations
-  require('load-grunt-config')(grunt, {
+  require('load-grunt-Config')(grunt, {
     configPath: __dirname +  '/tasks',
     data: {
       pkg: grunt.file.readJSON('package.json'),

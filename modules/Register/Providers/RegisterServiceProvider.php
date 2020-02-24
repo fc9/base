@@ -32,7 +32,7 @@ class RegisterServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register config.
+     * Register Config.
      *
      * @return void
      */
@@ -40,14 +40,14 @@ class RegisterServiceProvider extends ServiceProvider
     {
 
         $this->publishes([
-            __DIR__.'/path/to/config/courier.php' => config_path('courier.php'),
+            __DIR__.'/path/to/Config/courier.php' => config_path('courier.php'),
         ]);
 
         $this->publishes([
-            module_path('Register', 'Config/config.php') => config_path('register.php'),
-        ], 'config');
+            module_path('Register', 'Config/Config.php') => config_path('register.php'),
+        ], 'Config');
         $this->mergeConfigFrom(
-            module_path('Register', 'Config/config.php'), 'register'
+            module_path('Register', 'Config/Config.php'), 'register'
         );
     }
 

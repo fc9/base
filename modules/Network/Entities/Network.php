@@ -23,8 +23,8 @@ class Network extends Model
             'parent_node_id' => null,
             'lineage' => null,
             'fixed_leg' => config('network.binary.leg.undefined'),
-            //'work_leg' => config('network.binary.leg.balanced'),
-            //'status' => $config('network.node.status.aspirant'),
+            //'work_leg' => Config('network.binary.leg.balanced'),
+            //'status' => $Config('network.node.status.aspirant'),
         ]);
 
         return $node;

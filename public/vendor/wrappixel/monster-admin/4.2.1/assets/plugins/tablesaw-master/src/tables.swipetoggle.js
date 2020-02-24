@@ -290,7 +290,7 @@
 							swipeVerticalThreshold: 30
 						});
 
-						// This config code is a little awkward because shoestring doesn’t support deep $.extend
+						// This Config code is a little awkward because shoestring doesn’t support deep $.extend
 						// Trying to work around when devs only override one of (not both) horizontalThreshold or
 						// verticalThreshold in their TablesawConfig.
 						// @TODO major version bump: remove cfg.swipe, move to just use the swipePrefix keys

@@ -597,8 +597,8 @@
 
   /**
    * Config object: Maintain internal state
-   * Later exposed as QUnit.config
-   * `config` initialized at top of scope
+   * Later exposed as QUnit.Config
+   * `Config` initialized at top of scope
    */
   var config = {
 
@@ -655,10 +655,10 @@
   	storage: localSessionStorage
   };
 
-  // take a predefined QUnit.config and extend the defaults
+  // take a predefined QUnit.Config and extend the defaults
   var globalConfig = window && window.QUnit && window.QUnit.config;
 
-  // only extend the global config if there is no QUnit overload
+  // only extend the global Config if there is no QUnit overload
   if (window && window.QUnit && !window.QUnit.version) {
   	extend(config, globalConfig);
   }
@@ -2470,7 +2470,7 @@
 
   	if (defined.document) {
 
-  		// QUnit may be defined when it is preconfigured but then only QUnit and QUnit.config may be defined.
+  		// QUnit may be defined when it is preconfigured but then only QUnit and QUnit.Config may be defined.
   		if (window.QUnit && window.QUnit.version) {
   			throw new Error("QUnit has already been defined.");
   		}
@@ -2821,7 +2821,7 @@
   			} else if (globalStartAlreadyCalled || count > 1) {
   				throw new Error("Called start() outside of a test context too many times");
   			} else if (config.autostart) {
-  				throw new Error("Called start() outside of a test context when " + "QUnit.config.autostart was true");
+  				throw new Error("Called start() outside of a test context when " + "QUnit.Config.autostart was true");
   			} else if (!config.pageLoaded) {
 
   				// The page isn't completely loaded yet, so we set autostart and then
@@ -3016,7 +3016,7 @@
   		QUnit.config.seed = urlParams.seed;
   	}
 
-  	// Add URL-parameter-mapped config values with UI form rendering data
+  	// Add URL-parameter-mapped Config values with UI form rendering data
   	QUnit.config.urlConfig.push({
   		id: "hidepassed",
   		label: "Hide passed tests",
@@ -3247,7 +3247,7 @@
   	}
 
   	// Handle "click" events on toolbar checkboxes and "change" for select menus.
-  	// Updates the URL with the new state of `config.urlConfig` values.
+  	// Updates the URL with the new state of `Config.urlConfig` values.
   	function toolbarChanged() {
   		var updatedUrl,
   		    value,
@@ -3334,7 +3334,7 @@
   		var urlConfigContainer = document$$1.createElement("span");
 
   		urlConfigContainer.innerHTML = getUrlConfigHtml();
-  		addClass(urlConfigContainer, "qunit-url-config");
+  		addClass(urlConfigContainer, "qunit-url-Config");
 
   		addEvents(urlConfigContainer.getElementsByTagName("input"), "change", toolbarChanged);
   		addEvents(urlConfigContainer.getElementsByTagName("select"), "change", toolbarChanged);

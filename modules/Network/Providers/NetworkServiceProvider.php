@@ -32,17 +32,17 @@ class NetworkServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register config.
+     * Register Config.
      *
      * @return void
      */
     protected function registerConfig()
     {
         $this->publishes([
-            module_path('Network', 'Config/config.php') => config_path('network.php'),
-        ], 'config');
+            module_path('Network', 'Config/Config.php') => config_path('network.php'),
+        ], 'Config');
         $this->mergeConfigFrom(
-            module_path('Network', 'Config/config.php'), 'network'
+            module_path('Network', 'Config/Config.php'), 'network'
         );
     }
 

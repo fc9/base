@@ -17,7 +17,7 @@ module.exports = function(Chart) {
 				var sval = source[key];
 
 				if (key === 'scales') {
-					// scale config merging is complex. Add our own function here for that
+					// scale Config merging is complex. Add our own function here for that
 					target[key] = helpers.scaleMerge(tval, sval);
 				} else if (key === 'scale') {
 					// used in polar area & radar charts since there is only one scale

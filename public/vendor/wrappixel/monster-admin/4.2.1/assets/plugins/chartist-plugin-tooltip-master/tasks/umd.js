@@ -12,8 +12,8 @@
 module.exports = function (grunt) {
   return {
     dist: {
-      src: '<%= pkg.config.src %>/scripts/<%= pkg.config.src_name %>.js',
-      dest: '<%= pkg.config.dist %>/<%= pkg.config.src_name %>.js',
+      src: '<%= pkg.Config.src %>/scripts/<%= pkg.Config.src_name %>.js',
+      dest: '<%= pkg.Config.dist %>/<%= pkg.Config.src_name %>.js',
       objectToExport: 'Chartist.plugins.tooltips',
       deps: {
         default: ['Chartist'],

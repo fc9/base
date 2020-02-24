@@ -13,12 +13,12 @@ module.exports = function (grunt) {
   return {
     dist: {
       options: {
-        banner: '<%= pkg.config.banner %>',
+        banner: '<%= pkg.Config.banner %>',
         sourceMap: true,
         sourceMapIncludeSources: true
       },
       files: {
-        '<%= pkg.config.dist %>/<%= pkg.config.src_name %>.min.js': ['<%= pkg.config.dist %>/<%= pkg.config.src_name %>.js']
+        '<%= pkg.config.dist %>/<%= pkg.config.src_name %>.min.js': ['<%= pkg.Config.dist %>/<%= pkg.Config.src_name %>.js']
       }
     }
   };

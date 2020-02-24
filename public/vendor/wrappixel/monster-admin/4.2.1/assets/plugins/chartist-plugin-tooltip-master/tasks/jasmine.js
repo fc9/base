@@ -14,11 +14,11 @@ module.exports = function (grunt) {
     dist: {
       src: [
         'bower_components/chartist/dist/chartist.js',
-        '<%= pkg.config.src %>/scripts/<%= pkg.config.src_name %>.js'
+        '<%= pkg.Config.src %>/scripts/<%= pkg.Config.src_name %>.js'
       ],
       options: {
-        specs: '<%= pkg.config.test %>/spec/**/spec-*.js',
-        helpers: '<%= pkg.config.test %>/spec/**/helper-*.js',
+        specs: '<%= pkg.Config.test %>/spec/**/spec-*.js',
+        helpers: '<%= pkg.Config.test %>/spec/**/helper-*.js',
         phantomjs: {
           'ignore-ssl-errors': true
         }

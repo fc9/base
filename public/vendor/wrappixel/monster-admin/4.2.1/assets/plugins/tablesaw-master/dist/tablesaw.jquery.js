@@ -63,7 +63,7 @@ var Tablesaw = {
 };
 
 $(document).on("enhance.tablesaw", function() {
-	// Extend i18n config, if one exists.
+	// Extend i18n Config, if one exists.
 	if (typeof TablesawConfig !== "undefined" && TablesawConfig.i18n) {
 		Tablesaw.i18n = $.extend(Tablesaw.i18n, TablesawConfig.i18n || {});
 	}
@@ -1697,7 +1697,7 @@ if (Tablesaw.mustard) {
 							swipeVerticalThreshold: 30
 						});
 
-						// This config code is a little awkward because shoestring doesn’t support deep $.extend
+						// This Config code is a little awkward because shoestring doesn’t support deep $.extend
 						// Trying to work around when devs only override one of (not both) horizontalThreshold or
 						// verticalThreshold in their TablesawConfig.
 						// @TODO major version bump: remove cfg.swipe, move to just use the swipePrefix keys

@@ -9,12 +9,12 @@ module.exports = function(grunt) {
         banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' + '<%= grunt.template.today("yyyy-mm-dd") %>\n' + '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' + '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' + ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
         // Task configuration.
 
-        // -- clean config ----------------------------------------------------------=
+        // -- clean Config ----------------------------------------------------------=
         clean: {
             files: ['dist']
         },
 
-        // -- concat config ----------------------------------------------------------
+        // -- concat Config ----------------------------------------------------------
         concat: {
             options: {
                 banner: '<%= banner %>',
@@ -37,7 +37,7 @@ module.exports = function(grunt) {
             }
         },
 
-        // -- uglify config ----------------------------------------------------------
+        // -- uglify Config ----------------------------------------------------------
         uglify: {
             options: {
                 banner: '<%= banner %>'
@@ -48,7 +48,7 @@ module.exports = function(grunt) {
             },
         },
 
-        // -- jshint config ----------------------------------------------------------
+        // -- jshint Config ----------------------------------------------------------
         jshint: {
             gruntfile: {
                 options: {
@@ -64,7 +64,7 @@ module.exports = function(grunt) {
             }
         },
 
-        // -- jsbeautifier config -----------------------------------------------------
+        // -- jsbeautifier Config -----------------------------------------------------
         jsbeautifier: {
             dist: {
                 src: ["<%= concat.dist.dest %>"]
@@ -90,7 +90,7 @@ module.exports = function(grunt) {
             }
         },
 
-        // -- less config ----------------------------------------------------------
+        // -- less Config ----------------------------------------------------------
         less: {
             dist: {
                 files: {
@@ -99,7 +99,7 @@ module.exports = function(grunt) {
             }
         },
 
-        // -- autoprefixer config ----------------------------------------------------------
+        // -- autoprefixer Config ----------------------------------------------------------
         autoprefixer: {
             options: {
                 browsers: [
@@ -121,7 +121,7 @@ module.exports = function(grunt) {
             }
         },
 
-        // -- watch config ------------------------------------------------------------
+        // -- watch Config ------------------------------------------------------------
         watch: {
             gruntfile: {
                 files: '<%= jshint.gruntfile.src %>',
@@ -133,7 +133,7 @@ module.exports = function(grunt) {
             }
         },
 
-        // -- csscomb config ---------------------------------------------------------
+        // -- csscomb Config ---------------------------------------------------------
         csscomb: {
             options: {
               config: '.csscomb.json'
@@ -145,7 +145,7 @@ module.exports = function(grunt) {
             }
         },
 
-        // -- replace config ---------------------------------------------------------
+        // -- replace Config ---------------------------------------------------------
         replace: {
             bower: {
                 src: ['bower.json'],

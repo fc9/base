@@ -20,7 +20,7 @@ module.exports = function(Chart) {
 	Chart.controllers = {};
 
 	/**
-	 * Initializes the given config with global and chart default values.
+	 * Initializes the given Config with global and chart default values.
 	 */
 	function initConfig(config) {
 		config = config || {};
@@ -40,7 +40,7 @@ module.exports = function(Chart) {
 	}
 
 	/**
-	 * Updates the config of the chart
+	 * Updates the Config of the chart
 	 * @param chart {Chart} chart to update the options for
 	 */
 	function updateConfig(chart) {
@@ -105,7 +105,7 @@ module.exports = function(Chart) {
 			// Add the chart instance to the global namespace
 			Chart.instances[me.id] = me;
 
-			// Define alias to the config data: `chart.data === chart.config.data`
+			// Define alias to the Config data: `chart.data === chart.Config.data`
 			Object.defineProperty(me, 'data', {
 				get: function() {
 					return me.config.data;

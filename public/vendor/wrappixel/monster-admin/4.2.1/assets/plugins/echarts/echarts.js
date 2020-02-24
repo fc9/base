@@ -387,7 +387,7 @@ var esl;
         // factory: 初始化函数或对象
         // factoryDeps: 初始化函数的参数依赖
         // exports: 模块的实际暴露对象（AMD定义）
-        // config: 用于获取模块配置信息的函数（AMD定义）
+        // Config: 用于获取模块配置信息的函数（AMD定义）
         // state: 模块当前状态
         // require: local require函数
         // depMs: 实际依赖的模块集合，数组形式
@@ -650,7 +650,7 @@ var esl;
                         // 所以把它加入强依赖中
                         var hardCirclurDep = mod.depMkv[RegExp.$1];
                         hardCirclurDep && (hardCirclurDep.hard = 1);
-                        
+
                         // 如果是模块本身有问题导致的运行错误
                         // 就不要把invoking置回去了，避免影响autoInvoke其他模块的初始化
                         invoking = 0;
@@ -757,7 +757,7 @@ var esl;
         var mod = modModules[id];
         mod.state = MODULE_DEFINED;
         delete modAutoDefineModules[id];
-        
+
         var listeners = modDefinedListeners[id] || [];
         var len = listeners.length;
         while (len--) {
@@ -1621,12 +1621,12 @@ var esl;
 define('echarts', ['echarts/echarts'], function (main) {return main;});
 define('echarts/echarts', [
     'require',
-    './config',
+    './Config',
     'zrender/tool/util',
     'zrender/tool/event',
     'zrender/tool/env',
     'zrender',
-    'zrender/config',
+    'zrender/Config',
     './chart/island',
     './component/toolbox',
     './component',
@@ -1647,7 +1647,7 @@ define('echarts/echarts', [
     './theme/macarons',
     './theme/infographic'
 ], function (require) {
-    var ecConfig = require('./config');
+    var ecConfig = require('./Config');
     var zrUtil = require('zrender/tool/util');
     var zrEvent = require('zrender/tool/event');
     var self = {};
@@ -1701,7 +1701,7 @@ define('echarts/echarts', [
         this.resize = this.resize();
         this._init();
     }
-    var ZR_EVENT = require('zrender/config').EVENT;
+    var ZR_EVENT = require('zrender/Config').EVENT;
     var ZR_EVENT_LISTENS = [
         'CLICK',
         'DBLCLICK',
@@ -3429,7 +3429,7 @@ define('zrender/zrender', [
     'require',
     './base',
     'zrender/shape/Circle',
-    '../config',
+    '../Config',
     '../util/ecData',
     'zrender/tool/util',
     'zrender/tool/event',
@@ -3439,7 +3439,7 @@ define('zrender/zrender', [
 ], function (require) {
     var ChartBase = require('./base');
     var CircleShape = require('zrender/shape/Circle');
-    var ecConfig = require('../config');
+    var ecConfig = require('../Config');
     ecConfig.island = {
         zlevel: 0,
         z: 5,
@@ -3601,9 +3601,9 @@ define('zrender/zrender', [
     'zrender/shape/Image',
     'zrender/shape/Rectangle',
     '../util/shape/Icon',
-    '../config',
+    '../Config',
     'zrender/tool/util',
-    'zrender/config',
+    'zrender/Config',
     'zrender/tool/event',
     './dataView',
     '../component'
@@ -3613,7 +3613,7 @@ define('zrender/zrender', [
     var ImageShape = require('zrender/shape/Image');
     var RectangleShape = require('zrender/shape/Rectangle');
     var IconShape = require('../util/shape/Icon');
-    var ecConfig = require('../config');
+    var ecConfig = require('../Config');
     ecConfig.toolbox = {
         zlevel: 0,
         z: 6,
@@ -3694,7 +3694,7 @@ define('zrender/zrender', [
         }
     };
     var zrUtil = require('zrender/tool/util');
-    var zrConfig = require('zrender/config');
+    var zrConfig = require('zrender/Config');
     var zrEvent = require('zrender/tool/event');
     var _MAGICTYPE_STACK = 'stack';
     var _MAGICTYPE_TILED = 'tiled';
@@ -4552,7 +4552,7 @@ define('zrender/zrender', [
     './base',
     'zrender/shape/Text',
     'zrender/shape/Rectangle',
-    '../config',
+    '../Config',
     'zrender/tool/util',
     'zrender/tool/area',
     'zrender/tool/color',
@@ -4561,7 +4561,7 @@ define('zrender/zrender', [
     var Base = require('./base');
     var TextShape = require('zrender/shape/Text');
     var RectangleShape = require('zrender/shape/Rectangle');
-    var ecConfig = require('../config');
+    var ecConfig = require('../Config');
     ecConfig.title = {
         zlevel: 0,
         z: 6,
@@ -4782,9 +4782,9 @@ define('zrender/zrender', [
     '../util/shape/Cross',
     'zrender/shape/Line',
     'zrender/shape/Rectangle',
-    '../config',
+    '../Config',
     '../util/ecData',
-    'zrender/config',
+    'zrender/Config',
     'zrender/tool/event',
     'zrender/tool/area',
     'zrender/tool/color',
@@ -4797,7 +4797,7 @@ define('zrender/zrender', [
     var LineShape = require('zrender/shape/Line');
     var RectangleShape = require('zrender/shape/Rectangle');
     var rectangleInstance = new RectangleShape({});
-    var ecConfig = require('../config');
+    var ecConfig = require('../Config');
     ecConfig.tooltip = {
         zlevel: 1,
         z: 8,
@@ -4835,7 +4835,7 @@ define('zrender/zrender', [
         textStyle: { color: '#fff' }
     };
     var ecData = require('../util/ecData');
-    var zrConfig = require('zrender/config');
+    var zrConfig = require('zrender/Config');
     var zrEvent = require('zrender/tool/event');
     var zrArea = require('zrender/tool/area');
     var zrColor = require('zrender/tool/color');
@@ -6012,7 +6012,7 @@ define('zrender/zrender', [
     'zrender/shape/Sector',
     '../util/shape/Icon',
     '../util/shape/Candle',
-    '../config',
+    '../Config',
     'zrender/tool/util',
     'zrender/tool/area',
     '../component'
@@ -6023,7 +6023,7 @@ define('zrender/zrender', [
     var SectorShape = require('zrender/shape/Sector');
     var IconShape = require('../util/shape/Icon');
     var CandleShape = require('../util/shape/Candle');
-    var ecConfig = require('../config');
+    var ecConfig = require('../Config');
     ecConfig.legend = {
         zlevel: 0,
         z: 4,
@@ -7575,7 +7575,7 @@ define('zrender/zrender', [
     'zrender/shape/Rectangle',
     '../util/shape/Icon',
     '../util/shape/Chain',
-    '../config',
+    '../Config',
     'zrender/tool/util',
     'zrender/tool/area',
     'zrender/tool/event',
@@ -7585,7 +7585,7 @@ define('zrender/zrender', [
     var RectangleShape = require('zrender/shape/Rectangle');
     var IconShape = require('../util/shape/Icon');
     var ChainShape = require('../util/shape/Chain');
-    var ecConfig = require('../config');
+    var ecConfig = require('../Config');
     ecConfig.timeline = {
         zlevel: 0,
         z: 4,
@@ -10576,9 +10576,9 @@ define('zrender/zrender', [
     return Eventful;
 });define('zrender/tool/log', [
     'require',
-    '../config'
+    '../Config'
 ], function (require) {
-    var config = require('../config');
+    var config = require('../Config');
     return function () {
         if (config.debugMode === 0) {
             return;
@@ -10599,7 +10599,7 @@ define('zrender/zrender', [
     };
 });define('zrender/Handler', [
     'require',
-    './config',
+    './Config',
     './tool/env',
     './tool/event',
     './tool/util',
@@ -10608,7 +10608,7 @@ define('zrender/zrender', [
     './mixin/Eventful'
 ], function (require) {
     'use strict';
-    var config = require('./config');
+    var config = require('./Config');
     var env = require('./tool/env');
     var eventTool = require('./tool/event');
     var util = require('./tool/util');
@@ -11166,7 +11166,7 @@ define('zrender/zrender', [
     return Handler;
 });define('zrender/Painter', [
     'require',
-    './config',
+    './Config',
     './tool/util',
     './tool/log',
     './loadingEffect/Base',
@@ -11174,7 +11174,7 @@ define('zrender/zrender', [
     './shape/Image'
 ], function (require) {
     'use strict';
-    var config = require('./config');
+    var config = require('./Config');
     var util = require('./tool/util');
     var log = require('./tool/log');
     var BaseLoadingEffect = require('./loadingEffect/Base');
@@ -12611,12 +12611,12 @@ define('zrender/zrender', [
     'require',
     './mixin/Transformable',
     './tool/util',
-    './config'
+    './Config'
 ], function (require) {
     var Transformable = require('./mixin/Transformable');
     var util = require('./tool/util');
     var vmlCanvasManager = window['G_vmlCanvasManager'];
-    var config = require('./config');
+    var config = require('./Config');
     function returnFalse() {
         return false;
     }
@@ -14738,7 +14738,7 @@ define('zrender/zrender', [
     '../util/shape/Symbol',
     'zrender/shape/Polyline',
     'zrender/shape/ShapeBundle',
-    '../config',
+    '../Config',
     '../util/ecData',
     '../util/ecAnimation',
     '../util/ecEffect',
@@ -14754,7 +14754,7 @@ define('zrender/zrender', [
     var SymbolShape = require('../util/shape/Symbol');
     var PolylineShape = require('zrender/shape/Polyline');
     var ShapeBundle = require('zrender/shape/ShapeBundle');
-    var ecConfig = require('../config');
+    var ecConfig = require('../Config');
     var ecData = require('../util/ecData');
     var ecAnimation = require('../util/ecAnimation');
     var ecEffect = require('../util/ecEffect');
@@ -17615,14 +17615,14 @@ define('zrender/zrender', [
     };
 });define('echarts/component/base', [
     'require',
-    '../config',
+    '../Config',
     '../util/ecData',
     '../util/ecQuery',
     '../util/number',
     'zrender/tool/util',
     'zrender/tool/env'
 ], function (require) {
-    var ecConfig = require('../config');
+    var ecConfig = require('../Config');
     var ecData = require('../util/ecData');
     var ecQuery = require('../util/ecQuery');
     var number = require('../util/number');
@@ -19110,12 +19110,12 @@ define('zrender/zrender', [
 });define('echarts/component/dataView', [
     'require',
     './base',
-    '../config',
+    '../Config',
     'zrender/tool/util',
     '../component'
 ], function (require) {
     var Base = require('./base');
-    var ecConfig = require('../config');
+    var ecConfig = require('../Config');
     var zrUtil = require('zrender/tool/util');
     function DataView(ecTheme, messageCenter, zr, option, myChart) {
         Base.call(this, ecTheme, messageCenter, zr, option, myChart);
@@ -19870,7 +19870,7 @@ define('zrender/zrender', [
     'require',
     './base',
     'zrender/shape/Line',
-    '../config',
+    '../Config',
     '../util/ecData',
     'zrender/tool/util',
     'zrender/tool/color',
@@ -19880,7 +19880,7 @@ define('zrender/zrender', [
 ], function (require) {
     var Base = require('./base');
     var LineShape = require('zrender/shape/Line');
-    var ecConfig = require('../config');
+    var ecConfig = require('../Config');
     var ecData = require('../util/ecData');
     var zrUtil = require('zrender/tool/util');
     var zrColor = require('zrender/tool/color');
@@ -20107,13 +20107,13 @@ define('zrender/zrender', [
     'require',
     './base',
     'zrender/shape/Rectangle',
-    '../config',
+    '../Config',
     'zrender/tool/util',
     '../component'
 ], function (require) {
     var Base = require('./base');
     var RectangleShape = require('zrender/shape/Rectangle');
-    var ecConfig = require('../config');
+    var ecConfig = require('../Config');
     ecConfig.grid = {
         zlevel: 0,
         z: 0,
@@ -20243,7 +20243,7 @@ define('zrender/zrender', [
     'zrender/shape/Rectangle',
     'zrender/shape/Polygon',
     '../util/shape/Icon',
-    '../config',
+    '../Config',
     '../util/date',
     'zrender/tool/util',
     '../component'
@@ -20252,7 +20252,7 @@ define('zrender/zrender', [
     var RectangleShape = require('zrender/shape/Rectangle');
     var PolygonShape = require('zrender/shape/Polygon');
     var IconShape = require('../util/shape/Icon');
-    var ecConfig = require('../config');
+    var ecConfig = require('../Config');
     ecConfig.dataZoom = {
         zlevel: 0,
         z: 4,
@@ -21111,7 +21111,7 @@ define('zrender/zrender', [
     'zrender/shape/Text',
     'zrender/shape/Line',
     'zrender/shape/Rectangle',
-    '../config',
+    '../Config',
     'zrender/tool/util',
     'zrender/tool/area',
     '../component'
@@ -21120,7 +21120,7 @@ define('zrender/zrender', [
     var TextShape = require('zrender/shape/Text');
     var LineShape = require('zrender/shape/Line');
     var RectangleShape = require('zrender/shape/Rectangle');
-    var ecConfig = require('../config');
+    var ecConfig = require('../Config');
     ecConfig.categoryAxis = {
         zlevel: 0,
         z: 0,
@@ -21656,7 +21656,7 @@ define('zrender/zrender', [
     'zrender/shape/Text',
     'zrender/shape/Line',
     'zrender/shape/Rectangle',
-    '../config',
+    '../Config',
     '../util/date',
     'zrender/tool/util',
     '../util/smartSteps',
@@ -21668,7 +21668,7 @@ define('zrender/zrender', [
     var TextShape = require('zrender/shape/Text');
     var LineShape = require('zrender/shape/Line');
     var RectangleShape = require('zrender/shape/Rectangle');
-    var ecConfig = require('../config');
+    var ecConfig = require('../Config');
     ecConfig.valueAxis = {
         zlevel: 0,
         z: 0,

@@ -14,15 +14,15 @@ module.exports = function (grunt) {
     dist: {
       files: [
         {
-          dest: '<%= pkg.config.dist %>/',
+          dest: '<%= pkg.Config.dist %>/',
           src: 'LICENSE'
         },
         {
-          cwd: '<%= pkg.config.src %>',
+          cwd: '<%= pkg.Config.src %>',
           expand: true,
           flatten: true,
           filter: 'isFile',
-          dest: '<%= pkg.config.dist %>/',
+          dest: '<%= pkg.Config.dist %>/',
           src: 'css/**',
         }
       ]

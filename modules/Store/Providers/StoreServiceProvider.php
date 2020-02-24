@@ -32,17 +32,17 @@ class StoreServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register config.
+     * Register Config.
      *
      * @return void
      */
     protected function registerConfig()
     {
         $this->publishes([
-            module_path('Store', 'Config/config.php') => config_path('store.php'),
-        ], 'config');
+            module_path('Store', 'Config/Config.php') => config_path('store.php'),
+        ], 'Config');
         $this->mergeConfigFrom(
-            module_path('Store', 'Config/config.php'), 'store'
+            module_path('Store', 'Config/Config.php'), 'store'
         );
     }
 

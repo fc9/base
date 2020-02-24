@@ -130,7 +130,7 @@ var requirejs, require, define;
             name = name.join('/');
         }
 
-        //Apply map config if available.
+        //Apply map Config if available.
         if ((baseParts || starMap) && map) {
             nameParts = name.split('/');
 
@@ -138,12 +138,12 @@ var requirejs, require, define;
                 nameSegment = nameParts.slice(0, i).join("/");
 
                 if (baseParts) {
-                    //Find the longest baseName segment match in the config.
+                    //Find the longest baseName segment match in the Config.
                     //So, do joins on the biggest to smallest lengths of baseParts.
                     for (j = baseParts.length; j > 0; j -= 1) {
                         mapValue = map[baseParts.slice(0, j).join('/')];
 
-                        //baseName segment has  config, find if it has one for
+                        //baseName segment has  Config, find if it has one for
                         //this name.
                         if (mapValue) {
                             mapValue = mapValue[nameSegment];
@@ -163,7 +163,7 @@ var requirejs, require, define;
 
                 //Check for a star map match, but just hold on to it,
                 //if there is a shorter segment match later in a matching
-                //config, then favor over this star map.
+                //Config, then favor over this star map.
                 if (!foundStarMap && starMap && starMap[nameSegment]) {
                     foundStarMap = starMap[nameSegment];
                     starI = i;
@@ -393,7 +393,7 @@ var requirejs, require, define;
             //Normalize module name, if it contains . or ..
             return callDep(makeMap(deps, makeRelParts(callback)).f);
         } else if (!deps.splice) {
-            //deps is a config object, not an array.
+            //deps is a Config object, not an array.
             config = deps;
             if (config.deps) {
                 req(config.deps, config.callback);
@@ -442,8 +442,8 @@ var requirejs, require, define;
     };
 
     /**
-     * Just drops the config on the floor, but returns req in case
-     * the config return value is used.
+     * Just drops the Config on the floor, but returns req in case
+     * the Config return value is used.
      */
     req.config = function (cfg) {
         return req(cfg);
@@ -777,9 +777,9 @@ S2.define('select2/utils',[
 
   var id = 0;
   Utils.GetUniqueElementId = function (element) {
-    // Get a unique element Id. If element has no id, 
-    // creates a new unique number, stores it in the id 
-    // attribute and returns the new id. 
+    // Get a unique element Id. If element has no id,
+    // creates a new unique number, stores it in the id
+    // attribute and returns the new id.
     // If an id already exists, it simply returns it.
 
     var select2Id = element.getAttribute('data-select2-id');
@@ -798,7 +798,7 @@ S2.define('select2/utils',[
 
   Utils.StoreData = function (element, name, value) {
     // Stores an item in the cache for a specified element.
-    // name is the cache key.    
+    // name is the cache key.
     var id = Utils.GetUniqueElementId(element);
     if (!Utils.__cache[id]) {
       Utils.__cache[id] = {};
@@ -809,19 +809,19 @@ S2.define('select2/utils',[
 
   Utils.GetData = function (element, name) {
     // Retrieves a value from the cache by its key (name)
-    // name is optional. If no name specified, return 
+    // name is optional. If no name specified, return
     // all cache items for the specified element.
     // and for a specified element.
     var id = Utils.GetUniqueElementId(element);
     if (name) {
       if (Utils.__cache[id]) {
-        return Utils.__cache[id][name] != null ? 
+        return Utils.__cache[id][name] != null ?
 	      Utils.__cache[id][name]:
 	      $(element).data(name); // Fallback to HTML5 data attribs.
       }
       return $(element).data(name); // Fallback to HTML5 data attribs.
     } else {
-      return Utils.__cache[id];			   
+      return Utils.__cache[id];
     }
   };
 
@@ -5098,7 +5098,7 @@ S2.define('select2/options',[
 
       $e.attr('ajax--url', Utils.GetData($e[0], 'ajaxUrl'));
       Utils.StoreData($e[0], 'ajax-Url', Utils.GetData($e[0], 'ajaxUrl'));
-	  
+
     }
 
     var dataset = {};

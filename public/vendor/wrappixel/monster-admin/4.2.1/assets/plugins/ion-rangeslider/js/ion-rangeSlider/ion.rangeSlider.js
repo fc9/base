@@ -149,7 +149,7 @@
      * Main plugin constructor
      *
      * @param input {Object} link to base input element
-     * @param options {Object} slider config
+     * @param options {Object} slider Config
      * @param plugin_count {Number}
      * @constructor
      */
@@ -259,13 +259,13 @@
 
 
         /**
-         * get and validate config
+         * get and validate Config
          */
         var $inp = this.$cache.input,
             val = $inp.prop("value"),
             config, config_from_data, prop;
 
-        // default config
+        // default Config
         config = {
             type: "single",
 
@@ -327,7 +327,7 @@
 
 
 
-        // config from data-attributes extends js config
+        // Config from data-attributes extends js Config
         config_from_data = {
             type: $inp.data("type"),
 
@@ -391,7 +391,7 @@
 
 
 
-        // input value extends default config
+        // input value extends default Config
         if (val) {
             val = val.split(config_from_data.input_values_separator || options.input_values_separator || ";");
 
@@ -413,17 +413,17 @@
 
 
 
-        // js config extends default config
+        // js Config extends default Config
         $.extend(config, options);
 
 
-        // data config extends config
+        // data Config extends Config
         $.extend(config, config_from_data);
         this.options = config;
 
 
 
-        // validate config, to be sure that all data types are correct
+        // validate Config, to be sure that all data types are correct
         this.validate();
 
 
@@ -745,7 +745,7 @@
                 this.is_finish = true;
                 this.callOnFinish();
             }
-            
+
             this.dragging = false;
         },
 

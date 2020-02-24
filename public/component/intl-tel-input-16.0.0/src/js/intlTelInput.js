@@ -228,7 +228,7 @@ class Iti {
     }
   }
 
-  // Translate Countries by object literal provided on config
+  // Translate Countries by object literal provided on Config
   _translateCountriesByLocale() {
     for (let i = 0; i < this.countries.length; i++) {
       const iso = this.countries[i].iso2.toLowerCase();

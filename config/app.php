@@ -168,6 +168,7 @@ return [
         MenaraSolutions\Geographer\Integrations\LaravelServiceProvider::class,
         Waavi\Sanitizer\Laravel\SanitizerServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Fc9\Localization\Providers\LocalizationServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -233,6 +234,7 @@ return [
         'Geographer' => MenaraSolutions\Geographer\Integrations\LaravelFacade::class,
         'Sanitizer' => Waavi\Sanitizer\Laravel\Facade::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        'Localization' => Fc9\Localization\Facades\Localization::class,
     ],
 
 ];

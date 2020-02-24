@@ -106,7 +106,7 @@
 {{----}}
 {{----}}
 
-{{--This code is only for the live running demo, without the proper config key, it **DOES NOT** track anything--}}
+{{--This code is only for the live running demo, without the proper Config key, it **DOES NOT** track anything--}}
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 

@@ -34,17 +34,17 @@ class LocalizationServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register config.
+     * Register Config.
      *
      * @return void
      */
     protected function registerConfig()
     {
         $this->publishes([
-            module_path('Localization', 'Config/config.php') => config_path('localization.php'),
-        ], 'config');
+            module_path('Localization', 'Config/Config.php') => config_path('localization.php'),
+        ], 'Config');
         $this->mergeConfigFrom(
-            module_path('Localization', 'Config/config.php'), 'localization'
+            module_path('Localization', 'Config/Config.php'), 'localization'
         );
     }
 

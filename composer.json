@@ -37,7 +37,8 @@
     "autoload": {
         "psr-4": {
             "App\\": "app/",
-            "Modules\\": "modules/"
+            "Modules\\": "modules/",
+            "Fc9\\Localization\\": "packages/fc9/localization/src"
         },
         "classmap": [
             "database/seeds",
@@ -49,7 +50,9 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Tests\\": "tests/",
+            "Fc9\\Localization\\": "packages/fc9/localization/src",
+            "Fc9\\Localization\\Tests\\": "packages/fc9/localization/tests"
         }
     },
     "minimum-stability": "dev",

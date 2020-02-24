@@ -449,7 +449,7 @@ QUnit = {
 		// ignore if start is called more often then stop
 		if ( config.semaphore < 0 ) {
 			config.semaphore = 0;
-			QUnit.pushFailure( "Called start() while already started (QUnit.config.semaphore was 0 already)", null, sourceFromStacktrace(2) );
+			QUnit.pushFailure( "Called start() while already started (QUnit.Config.semaphore was 0 already)", null, sourceFromStacktrace(2) );
 			return;
 		}
 		// A slight delay, to avoid any current callbacks
@@ -490,7 +490,7 @@ QUnit = {
 // Asssert helpers
 // All of these must either call QUnit.push() or manually do:
 // - runLoggingCallbacks( "log", .. );
-// - config.current.assertions.push({ .. });
+// - Config.current.assertions.push({ .. });
 // We attach it to the QUnit object *after* we expose the public API,
 // otherwise `assert` will become a global variable in browsers (#341).
 assert = {
@@ -682,8 +682,8 @@ QUnit.same = function() {
 
 /**
  * Config object: Maintain internal state
- * Later exposed as QUnit.config
- * `config` initialized at top of scope
+ * Later exposed as QUnit.Config
+ * `Config` initialized at top of scope
  */
 config = {
 	// The queue of tests to run
@@ -707,7 +707,7 @@ config = {
 	requireExpects: false,
 
 	// add checkboxes that are persisted in the query-string
-	// when enabled, the id is set to `true` as a `QUnit.config` property
+	// when enabled, the id is set to `true` as a `QUnit.Config` property
 	urlConfig: [
 		{
 			id: "noglobals",
@@ -743,7 +743,7 @@ if ( typeof exports === "undefined" ) {
 	window.QUnit = QUnit;
 }
 
-// Initialize more QUnit.config and QUnit.urlParams
+// Initialize more QUnit.Config and QUnit.urlParams
 (function() {
 	var i,
 		location = window.location || { search: "", protocol: "file:" },
@@ -1040,7 +1040,7 @@ if ( typeof document === "undefined" || document.readyState === "complete" ) {
 QUnit.load = function() {
 	runLoggingCallbacks( "begin", QUnit, {} );
 
-	// Initialize the config, saving the execution queue
+	// Initialize the Config, saving the execution queue
 	var banner, filter, i, label, len, main, ol, toolbar, userAgent, val,
 		urlConfigCheckboxesContainer, urlConfigCheckboxes, moduleFilter,
 		numModules = 0,
