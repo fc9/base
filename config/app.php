@@ -168,7 +168,6 @@ return [
         MenaraSolutions\Geographer\Integrations\LaravelServiceProvider::class,
         Waavi\Sanitizer\Laravel\SanitizerServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
-        Fc9\Localization\Providers\LocalizationServiceProvider::class,
 
         /*
          * Application Service Providers...
