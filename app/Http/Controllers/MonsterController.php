@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\BladeViewService;
-use App\Services\ComponentsService;
-use App\Services\DashboardService;
+use App\Overrides\BladeViewService;
+use App\Overrides\ComponentsService;
+use App\Overrides\DashboardService;
 
 class MonsterController extends Controller
 {

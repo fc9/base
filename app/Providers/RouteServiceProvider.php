@@ -30,10 +30,6 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $pattern = '[0-9a-zA-Z._]+';
-        Route::pattern('username', $pattern);
-        Route::pattern('indicator', $pattern);
-
         parent::boot();
     }
 

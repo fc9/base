@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0956fefedcc2cd10240e06a52f08dcf2",
+    "content-hash": "4466c3bf678818f04f0698158d18fa6a",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -281,17 +281,77 @@
             "time": "2020-02-13T22:36:52+00:00"
         },
         {
-            "name": "fc9/localization",
-            "version": "v1.0",
+            "name": "fc9/auth",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/fc9/localization.git",
-                "reference": "253148c40086e5d6c534c0a897200c63b053bd0c"
+                "url": "https://github.com/fc9/auth.git",
+                "reference": "35240c71a2b9ffd9144ce175b389faae0e5417da"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fc9/localization/zipball/253148c40086e5d6c534c0a897200c63b053bd0c",
-                "reference": "253148c40086e5d6c534c0a897200c63b053bd0c",
+                "url": "https://api.github.com/repos/fc9/auth/zipball/35240c71a2b9ffd9144ce175b389faae0e5417da",
+                "reference": "35240c71a2b9ffd9144ce175b389faae0e5417da",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^6.0",
+                "menarasolutions/geographer-laravel": "^0.2.1",
+                "php": "^7.2",
+                "waavi/sanitizer": "^1.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^4.0",
+                "phpunit/phpunit": "^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Fc9\\Auth\\Providers\\AuthServiceProvider"
+                    ],
+                    "aliases": {
+                        "Localization": "Fc9\\Auth\\Facades\\Auth"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Fc9\\Auth\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabio Cabral",
+                    "email": "fabiocabralsantos@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Plugin that allows authenticate users.",
+            "homepage": "https://github.com/fc9/auth",
+            "keywords": [
+                "auth",
+                "authenticate",
+                "fc9"
+            ],
+            "time": "2020-02-25T05:45:49+00:00"
+        },
+        {
+            "name": "fc9/localization",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fc9/localization.git",
+                "reference": "79cafb48219cc1505417bb631d7dd5a8f1147061"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fc9/localization/zipball/79cafb48219cc1505417bb631d7dd5a8f1147061",
+                "reference": "79cafb48219cc1505417bb631d7dd5a8f1147061",
                 "shasum": ""
             },
             "require": {
@@ -335,7 +395,7 @@
                 "fc9",
                 "localization"
             ],
-            "time": "2020-02-24T07:00:26+00:00"
+            "time": "2020-02-25T05:27:57+00:00"
         },
         {
             "name": "fideloper/proxy",

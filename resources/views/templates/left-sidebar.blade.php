@@ -119,7 +119,7 @@
                             </li>
                         @else
                             <li>
-                                <a href="{{ route('dashboard.vouchers.voucher', ['username' => $user->username]) }}">
+                                <a href="{{-- route('dashboard.vouchers.voucher', ['username' => $user->username]) --}}">
                                     @lang('dashboard.pay_with_voucher') <span style="font-size: 10px;"></span>
                                 </a>
                             </li>
@@ -203,7 +203,7 @@
                         @endif
                         @if($user->is_user)
                             <li>
-                                <a href="{{ route('dashboard.management.activity_report', ['username' => $user->username]) }}">
+                                <a href="{{-- route('dashboard.management.activity_report', ['username' => $user->username]) --}}">
                                     @lang('dashboard.activity_report')
                                 </a>
                             </li>

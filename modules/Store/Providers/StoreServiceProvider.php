@@ -39,10 +39,10 @@ class StoreServiceProvider extends ServiceProvider
     protected function registerConfig()
     {
         $this->publishes([
-            module_path('Store', 'Config/Config.php') => config_path('store.php'),
+            module_path('Store', 'Config/config.php') => config_path('store.php'),
         ], 'Config');
         $this->mergeConfigFrom(
-            module_path('Store', 'Config/Config.php'), 'store'
+            module_path('Store', 'Config/config.php'), 'store'
         );
     }
 

@@ -3,35 +3,8 @@
 namespace App\Services;
 
 
-use Illuminate\Support\Facades\Session;
-use Modules\Register\Entities\UserView;
-
 class DashboardService
 {
-    public function setUserSession($username)
-    {
-        $user = $this->getAllowedUser($username);
-        $user->himself = $user['id'] === auth()->user()->id;
-        Session::put('user', $user);
-    }
-
-    private function getAllowedUser($username)
-    {
-        if ($username === auth()->user()->username) {
-            return UserView::find(auth()->user()->id);
-        }
-
-        $user = UserView::where('username', $username)->first();
-        if ($user === null || $user->access_profile === config('register.user.access_profile.superuser')) {
-            return UserView::find(auth()->user()->id);
-        }
-
-        return (auth()->user()->access_profile !== config('register.user.access_profile.superuser') &&
-            auth()->user()->access_profile !== config('register.user.access_profile.admin'))
-            ? UserView::find(auth()->user()->id)
-            : $user;
-    }
-
     /**
      * This is where you implement your logic to get the data for a
      * chart. We begin here with an example to get you started.
@@ -67,14 +40,14 @@ class DashboardService
         $low = 0;
 
         return [
-            'title' => $title,
-            'subtitle' => $subtitle,
-            'seriesTitles' => $seriesTitles,
-            'seriesClasses' => $seriesClasses,
-            'labels' => $labels,
-            'series' => $series,
-            'high' => $high,
-            'low' => $low,
+            'title'         => $title,
+            'subtitle'      => $subtitle,
+            'seriesTitles'  => $seriesTitles,
+            'seriesClasses'  => $seriesClasses,
+            'labels'        => $labels,
+            'series'        => $series,
+            'high'          => $high,
+            'low'           => $low,
         ];
     }
 
@@ -100,15 +73,14 @@ class DashboardService
         ];
 
         return [
-            'title' => $title,
-            'seriesTitles' => $seriesTitles,
-            'data' => $data,
-            'colors' => $colors
+            'title'          => $title,
+            'seriesTitles'   => $seriesTitles,
+            'data'           => $data,
+            'colors'         => $colors
         ];
     }
 
-    public function getSalesPrediction()
-    {
+    public function getSalesPrediction(){
 
         $title = 'Sales Prediction';
 
@@ -122,22 +94,21 @@ class DashboardService
         ];
 
         return [
-            'title' => $title,
-            'series' => $series,
-            'data' => $data
+            'title'          => $title,
+            'series'         => $series,
+            'data'           => $data
         ];
     }
 
-    public function getSalesDifference()
-    {
+    public function getSalesDifference(){
 
         $title = 'Sales Difference';
 
         $series = [35, 15, 10];
 
         return [
-            'title' => $title,
-            'series' => $series
+            'title'          => $title,
+            'series'         => $series
         ];
     }
 }

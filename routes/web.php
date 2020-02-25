@@ -18,7 +18,6 @@ Route::get('/', 'HomeController@home')->name('home')->middleware('guest');
  *  ----------------------------------------------------------------------- */
 
 Route::group(['namespace' => 'Tool', 'middleware' => 'guest'], function () {
-    //Route::get('locale/{locale}', 'LocalizationController@update')->name('locale');
 
     Route::get('ajaxRequest', 'TestController@ajaxRequest');
     Route::post('ajaxRequest', 'TestController@ajaxRequestPost');
@@ -35,46 +34,6 @@ Route::group(['namespace' => 'Tool', 'middleware' => 'guest'], function () {
  *  Auth Routes
  *  ----------------------------------------------------------------------- */
 
-Route::group(['namespace' => 'Auth'], function () {
-
-    # LogIn Routes
-    Route::get('login', 'LoginController@showLoginForm')->middleware('guest')->name('login');
-    Route::post('login', 'LoginController@login')->middleware('guest');
-    Route::post('logout', 'LoginController@logout')->middleware('auth')->name('logout');
-    Route::get('invitation/{indicator}', 'CheckEmailController@showCheckForm')->middleware('guest');
-
-    # LogUp Routes
-    Route::group(['prefix' => 'signup', 'as' => 'signup'], function () {
-        # Step 1
-        Route::get('/', 'CheckEmailController@showCheckForm')->middleware('guest')->name('.check');
-        Route::post('/', 'CheckEmailController@check')->middleware('guest');
-        # Step 2
-        Route::get('register', 'RegisterController@showRegistrationForm')->middleware('guest')->name('.register');
-        Route::post('register', 'RegisterController@register')->middleware('guest');
-        # Step 3
-        Route::get('confirm', 'EmailConfirmController@showConfirmForm')->middleware('auth')->name('.confirm');
-        Route::post('confirm', 'EmailConfirmController@confirm')->middleware('auth');
-    });
-
-    # Confirm Password Routes
-    Route::get('confirm/{token?}', 'ConfirmPasswordController@showConfirmForm')->middleware('guest')->name('.confirm');
-    Route::post('confirm', 'ConfirmPasswordController@confirm')->middleware('guest');
-
-    # Reset Password Routes
-    Route::group(['prefix' => 'password', 'as' => 'password', 'middleware' => 'guest'], function () {
-        Route::get('request', 'ForgotPasswordController@showLinkRequestForm')->name('.request');
-        Route::post('email', 'ForgotPasswordController@sendResetLinkEmail')->name('.email');
-        Route::get('reset/{token}', 'ResetPasswordController@showResetForm')->name('.reset');
-        Route::post('reset', 'ResetPasswordController@reset')->name('.update');
-    });
-
-});
-
-Route::group(['prefix' => 'signup', 'as' => 'signup', 'namespace' => 'Auth', 'middleware' => 'auth',], function () {
-    # Step 3
-    Route::get('confirm', 'EmailConfirmController@showConfirmForm')->name('.confirm');
-    Route::post('confirm', 'EmailConfirmController@confirm');
-});
 
 /** --------------------------------------------------------------------------
  *  Temporary Routes
@@ -206,10 +165,10 @@ Route::group(['prefix' => '{username}/', 'namespace' => 'Dashboard', 'as' => 'da
             Route::get('profile', 'ProfileController@edit')->name('.profile');
             Route::post('profile', 'ProfileController@update');
             Route::post('profile/update_avatar', 'ProfileController@updateAvatar');
-        # Preferences Management
+            # Preferences Management
 //        #Route::get('preferences', 'PreferencesController@edit')->name('.references');
 //        #Route::post('preferences', 'PreferencesController@update');
-        # Security Management
+            # Security Management
 //        #Route::get('security', 'SecurityController@edit')->name('.security');
 //        #Route::post('security', 'SecurityController@update');
         });

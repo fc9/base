@@ -39,10 +39,10 @@ class NetworkServiceProvider extends ServiceProvider
     protected function registerConfig()
     {
         $this->publishes([
-            module_path('Network', 'Config/Config.php') => config_path('network.php'),
+            module_path('Network', 'Config/config.php') => config_path('network.php'),
         ], 'Config');
         $this->mergeConfigFrom(
-            module_path('Network', 'Config/Config.php'), 'network'
+            module_path('Network', 'Config/config.php'), 'network'
         );
     }
 

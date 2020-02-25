@@ -5,10 +5,11 @@
     </a>
     <div class="dropdown-menu dropdown-menu-right animated bounceInDown" style="overflow:hidden">
         @langForeach()
-        <a class="dropdown-item" href="{{ url('locale/' . $lang) }}">
+        <a class="dropdown-item" href="{{ url('localization/' . $lang) }}">
             <i class="flag-icon @lang('app.class-flag-icon', [], $lang)"></i>&nbsp;@lang('app.language', [], $lang)
         </a>
         @endforeach
+
         {{--
         <a class="dropdown-item" href="{{ url('/locale/en') }}">
             <i class="flag-icon flag-icon-us"></i>&nbsp;English

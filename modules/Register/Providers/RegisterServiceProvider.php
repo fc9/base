@@ -44,10 +44,10 @@ class RegisterServiceProvider extends ServiceProvider
         ]);
 
         $this->publishes([
-            module_path('Register', 'Config/Config.php') => config_path('register.php'),
+            module_path('Register', 'Config/config.php') => config_path('register.php'),
         ], 'Config');
         $this->mergeConfigFrom(
-            module_path('Register', 'Config/Config.php'), 'register'
+            module_path('Register', 'Config/config.php'), 'register'
         );
     }
 
