@@ -151,18 +151,40 @@ return [
     */
 
     'attributes' => [
-        'name' => 'name', # nome
-        'firstname' => 'first name', # primeiro nome
-        'lastname' => 'last name', # sobrenome
-        'username' => 'username', # nome de usuário
-        'indicator' => 'sponsor\'s username', # patrocinador
-        'email' => 'email address', # endereço de email
-        'password' => 'password', # senha
-        'confirm_password' => 'password confirm', # confirmação de senha
-        'phone' => 'phone number', # telefone
-        'country' => 'country', # país
-        'state' => 'state', # estado
-        'city' => 'city', # cidade
+        'address'               => 'address',
+        'age'                   => 'age',
+        'body'                  => 'body',
+        'city'                  => 'city',
+        'country'               => 'country',
+        'date'                  => 'date',
+        'day'                   => 'day',
+        'description'           => 'description',
+        'excerpt'               => 'excerpt',
+        'first_name'            => 'first name',
+        'gender'                => 'gender',
+        'hour'                  => 'hour',
+        'last_name'             => 'last name',
+        'message'               => 'message',
+        'minute'                => 'minute',
+        'mobile'                => 'mobile',
+        'month'                 => 'month',
+        'name'                  => 'name',
+        'password_confirmation' => 'password confirm',
+        'password'              => 'password',
+        'phone'                 => 'phone',
+        'second'                => 'second',
+        'sex'                   => 'sex',
+        'state'                 => 'state',
+        'subject'               => 'subject',
+        'text'                  => 'text',
+        'time'                  => 'time',
+        'title'                 => 'title',
+        'username'              => 'username',
+        'year'                  => 'year',
+        'email'                 => 'email',
+        'remember'              => 'remember',
+
+        'indicator'             => 'indicator',
     ],
 
 ];

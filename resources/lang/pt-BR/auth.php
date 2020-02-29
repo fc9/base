@@ -12,6 +12,8 @@ return [
     | these language lines according to your application's requirements.
     |
     */
+
+
     'sign_up' => 'Inscrever-se',
     'sign_in' => 'Entrar',
     'go' => 'Avançar',

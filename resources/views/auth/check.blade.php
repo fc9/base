@@ -41,7 +41,7 @@
                         </div>
                         <div class="form-group text-center">
                             <div class="col-xs-12">
-                                <input type="text" id="indicator" minlength="6" maxlength="18" required=""
+                                <input type="text" id="indicator" minlength="5" maxlength="16" required=""
                                        placeholder="@lang('auth.label_indicator')" autocomplete="off"
                                        title="@lang('auth.label_indicator')"
                                        name="indicator{{ $indicator !== '' ? '_readonly' : '' }}"
@@ -93,7 +93,7 @@
                         <div class="form-group">
                             <div class="col-xs-12 text-center">
                                 @include('templates.components.progress-bar')
-                                @include('templates.components.dropdown-lang')
+                                @include('templates.base.components.dropdown-lang')
                             </div>
                         </div>
                         @if (Route::has('login'))

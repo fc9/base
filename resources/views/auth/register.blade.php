@@ -59,21 +59,21 @@
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6" style="max-width:47%">
-                                <input type="text" id="firtname" minlength="3" maxlength="18" required=""
-                                       placeholder="@lang('auth.label_firstname')*" autocomplete="off"
-                                       title="@lang('auth.label_firstname')" name="firstname"
-                                       class="form-control" value="{{ old('firstname')}}">
+                                <input type="text" id="firt_name" minlength="3" maxlength="18" required=""
+                                       placeholder="@lang('auth.label_first_name')*" autocomplete="off"
+                                       title="@lang('auth.label_first_name')" name="first_name"
+                                       class="form-control" value="{{ old('first_name')}}">
                             </div>
                             <div class="form-group col-md-6" style="max-width:47%">
-                                <input type="text" id="lastname" minlength="3" maxlength="45"
-                                       placeholder="@lang('auth.label_lastname')" autocomplete="off"
-                                       title="@lang('auth.label_lastname')" name="lastname"
-                                       class="form-control" value="{{ old('lastname')}}">
+                                <input type="text" id="last_name" minlength="3" maxlength="45"
+                                       placeholder="@lang('auth.label_last_name')" autocomplete="off"
+                                       title="@lang('auth.label_last_name')" name="last_name"
+                                       class="form-control" value="{{ old('last_name')}}">
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-xs-12">
-                                <input type="text" minlength="6" maxlength="18" required=""
+                                <input type="text" minlength="5" maxlength="18" required=""
                                        placeholder="@lang('auth.label_username')*" autocomplete="off"
                                        title="@lang('auth.label_username')" name="username"
                                        class="form-control btn-lg text-center" value="{{ old('username') }}">

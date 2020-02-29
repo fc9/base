@@ -80,7 +80,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-xs-12 text-center">
-                                @include('templates.components.dropdown-lang')
+                                @include('templates.base.components.dropdown-lang')
                             </div>
                         </div>
                         <div class="form-group mb-0">

@@ -18,22 +18,32 @@ Route::get('/', 'HomeController@home')->name('home')->middleware('guest');
  *  ----------------------------------------------------------------------- */
 
 Route::group(['namespace' => 'Tool', 'middleware' => 'guest'], function () {
-
     Route::get('ajaxRequest', 'TestController@ajaxRequest');
     Route::post('ajaxRequest', 'TestController@ajaxRequestPost');
-
     Route::get('geographer', 'TestController@geographer');
-
     Route::get('config2object', 'TestController@config2Objectt');
-
     Route::get('confirmtest', 'TestController@confirmTest');
-
 });
 
-/** --------------------------------------------------------------------------
- *  Auth Routes
- *  ----------------------------------------------------------------------- */
-
+Route::group(['prefix' => 'labs', 'namespace' => 'Labs'], function () {
+    Route::get('login', 'LabsController@login');
+    Route::get('login-disabled', 'LabsController@loginDisabled');
+    Route::get('login-help', 'LabsController@loginHelp');
+    Route::get('captcha', 'LabsController@captcha');
+    Route::get('register-1', 'LabsController@register1');
+    Route::get('register-2', 'LabsController@register2');
+    Route::get('register-3', 'LabsController@register3');
+    Route::get('register-disabled', 'LabsController@registerDisabled');
+    Route::get('register-minimum-requirements', 'LabsController@registerMinimumRequirements');
+    Route::get('forgot-password', 'LabsController@forgotPassword');
+    Route::get('forgot-email', 'LabsController@forgotEmail');
+    Route::get('user-blocked', 'LabsController@userBlocked');
+    Route::get('user-banned', 'LabsController@userBanned');
+    Route::get('under-maintenance', 'LabsController@underMaintenance');
+    Route::get('page-404', 'LabsController@page404');
+    Route::get('page-500', 'LabsController@page500');
+    Route::get('inactivity', 'LabsController@inactivity');
+});
 
 /** --------------------------------------------------------------------------
  *  Temporary Routes

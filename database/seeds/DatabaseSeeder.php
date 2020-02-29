@@ -16,12 +16,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        # php artisan db:seed
-        # php artisan migrate:refresh --seed --drop-views
-        $this->call(RegisterDatabaseSeeder::class);
-        $this->call(NetworkDatabaseSeeder::class);
-        $this->call(BankDatabaseSeeder::class);
-        $this->call(StoreDatabaseSeeder::class);
+        // $this->call(UsersTableSeeder::class);
+
+//        $this->call(RegisterDatabaseSeeder::class);
+//        $this->call(NetworkDatabaseSeeder::class);
+//        $this->call(BankDatabaseSeeder::class);
+//        $this->call(StoreDatabaseSeeder::class);
 
 //        $this->call(UsersTableSeeder::class);
     }

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4466c3bf678818f04f0698158d18fa6a",
+    "content-hash": "a1b6c3003b347518016192380215fb16",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -279,123 +279,6 @@
                 "validator"
             ],
             "time": "2020-02-13T22:36:52+00:00"
-        },
-        {
-            "name": "fc9/auth",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/fc9/auth.git",
-                "reference": "35240c71a2b9ffd9144ce175b389faae0e5417da"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/fc9/auth/zipball/35240c71a2b9ffd9144ce175b389faae0e5417da",
-                "reference": "35240c71a2b9ffd9144ce175b389faae0e5417da",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "^6.0",
-                "menarasolutions/geographer-laravel": "^0.2.1",
-                "php": "^7.2",
-                "waavi/sanitizer": "^1.0"
-            },
-            "require-dev": {
-                "orchestra/testbench": "^4.0",
-                "phpunit/phpunit": "^8.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Fc9\\Auth\\Providers\\AuthServiceProvider"
-                    ],
-                    "aliases": {
-                        "Localization": "Fc9\\Auth\\Facades\\Auth"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Fc9\\Auth\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabio Cabral",
-                    "email": "fabiocabralsantos@gmail.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Plugin that allows authenticate users.",
-            "homepage": "https://github.com/fc9/auth",
-            "keywords": [
-                "auth",
-                "authenticate",
-                "fc9"
-            ],
-            "time": "2020-02-25T05:45:49+00:00"
-        },
-        {
-            "name": "fc9/localization",
-            "version": "1.0.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/fc9/localization.git",
-                "reference": "79cafb48219cc1505417bb631d7dd5a8f1147061"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/fc9/localization/zipball/79cafb48219cc1505417bb631d7dd5a8f1147061",
-                "reference": "79cafb48219cc1505417bb631d7dd5a8f1147061",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "^6.0",
-                "php": "^7.2"
-            },
-            "require-dev": {
-                "orchestra/testbench": "^4.0",
-                "phpunit/phpunit": "^8.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Fc9\\Localization\\Providers\\LocalizationServiceProvider"
-                    ],
-                    "aliases": {
-                        "Localization": "Fc9\\Localization\\LocalizationFacade"
-                    }
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Fc9\\Localization\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabio Cabral",
-                    "email": "fabiocabralsantos@gmail.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Making it easier to add support the multiple languages.",
-            "homepage": "https://github.com/fc9/localization",
-            "keywords": [
-                "fc9",
-                "localization"
-            ],
-            "time": "2020-02-25T05:27:57+00:00"
         },
         {
             "name": "fideloper/proxy",
@@ -682,16 +565,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v6.16.0",
+            "version": "v6.17.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "b47217e41868d3049ec545cbb713aa94c6f39e55"
+                "reference": "32d1ed55dd46dcd706ff2e45bb7965be7320b87d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/b47217e41868d3049ec545cbb713aa94c6f39e55",
-                "reference": "b47217e41868d3049ec545cbb713aa94c6f39e55",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/32d1ed55dd46dcd706ff2e45bb7965be7320b87d",
+                "reference": "32d1ed55dd46dcd706ff2e45bb7965be7320b87d",
                 "shasum": ""
             },
             "require": {
@@ -824,7 +707,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2020-02-18T15:17:52+00:00"
+            "time": "2020-02-26T14:23:01+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -4349,16 +4232,16 @@
         },
         {
             "name": "phpdocumentor/reflection-docblock",
-            "version": "5.0.0",
+            "version": "5.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-                "reference": "a48807183a4b819072f26e347bbd0b5199a9d15f"
+                "reference": "cd72d394ca794d3466a3b2fc09d5a6c1dc86b47e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/a48807183a4b819072f26e347bbd0b5199a9d15f",
-                "reference": "a48807183a4b819072f26e347bbd0b5199a9d15f",
+                "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/cd72d394ca794d3466a3b2fc09d5a6c1dc86b47e",
+                "reference": "cd72d394ca794d3466a3b2fc09d5a6c1dc86b47e",
                 "shasum": ""
             },
             "require": {
@@ -4398,7 +4281,7 @@
                 }
             ],
             "description": "With this component, a library can provide support for annotations via DocBlocks or otherwise retrieve information that is embedded in a DocBlock.",
-            "time": "2020-02-09T09:16:15+00:00"
+            "time": "2020-02-22T12:28:44+00:00"
         },
         {
             "name": "phpdocumentor/type-resolver",

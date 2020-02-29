@@ -59,7 +59,7 @@ class ProfileController extends Controller
     public function updateAvatar(ProfileRequest $request)
     {
         // Upload Image
-        $path = config('register.person.avatar.path');
+        $path = config('auth.uploads.profile');
         $image_name = 'avatar' . rand() . '.' . $request->image->getClientOriginalExtension();
         $request->image->move(public_path($path), $image_name);
 

@@ -2,6 +2,8 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/packages/fc9/auth" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/packages/fc9/lang" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/packages/fc9/localization" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/packages/localization" vcs="Git" />
   </component>

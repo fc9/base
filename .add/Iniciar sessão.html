@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title data-i18n="">Iniciar sessão</title>
+    <meta name="google" content="notranslate">
+    <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="Iniciar%20sess%C3%A3o_arquivos/rso-login-page.css">
+
+    <script type="application/json" id="config">
+        {
+            "ga": "[\"UA-5859958-25\", { \"id\": \"UA-5859958-40\", \"uuid\": true, \"linkedDomains\": [ \"staging.signup.piglet.io\", \"bluetape.leagueoflegends.com\", \"playruneterra.com\" ] }, { \"id\": \"UA-5859958-1\", \"uuid\": true, \"linkedDomains\": [ \"staging.signup.piglet.io\", \"bluetape.leagueoflegends.com\", \"playruneterra.com\" ] }]",
+            "cdn": "https://lolstatic-a.akamaihd.net/rso-login-page/2.4.9",
+            "enableRegionSelector": false,
+            "recaptcha": "6LcGEv8SAAAAAPUTwLPaiMfnJNfedmGj4oww8ITT",
+            "remember": true,
+            "trustedDeviceEnabled": false,
+            "links": {
+                "support-kr": "https://signup.leagueoflegends.co.kr/Customer/faq.php",
+                "eula": "http://{region}.leagueoflegends.com/{lang}/legal/eula",
+                "terms": "http://{region}.leagueoflegends.com/{lang}/legal/termsofuse",
+                "about-trusted-devices": "https://support.riotgames.com/hc/articles/360010366413",
+                "cant-sign-in-kr": "https://account.leagueoflegends.co.kr/id-finder",
+                "privacy": "http://{region}.leagueoflegends.com/{lang}/legal/privacy",
+                "cant-sign-in": "https://recovery.riotgames.com/{bcp47Lang}?region={regionName}",
+                "privacy-kr": "https://www.leagueoflegends.co.kr/?m=rules&cid=2",
+                "about-trusted-devices-kr": "https://signup.leagueoflegends.co.kr/Customer/faq.php?nCate01=1&nCate02=9",
+                "terms-kr": "http://www.leagueoflegends.co.kr/?m=rules&cid=1",
+                "eula-kr": "https://www.leagueoflegends.co.kr/?m=rules&cid=3",
+                "support": "https://support.riotgames.com/hc/{lang}",
+                "account-recovery": "https://support.riotgames.com/hc/requests/new?ticket_form_id=72416",
+                "signup": "https://signup.{region}.leagueoflegends.com/{lang}",
+                "signup-kr": "https://signup.account.leagueoflegends.co.kr",
+                "signup-pbe": "https://pbesignup.na.leagueoflegends.com/{posixLang}/pbe",
+                "account-recovery-kr": "https://signup.leagueoflegends.co.kr/Customer/faq.php?nCate01=1&nCate02=9"
+            },
+            "languages": [
+                {
+                    "code": "en_US",
+                    "name": "English"
+                },
+                {
+                    "code": "cs_CZ",
+                    "name": "Čeština"
+                },
+                {
+                    "code": "de_DE",
+                    "name": "Deutsch"
+                },
+                {
+                    "code": "el_GR",
+                    "name": "Ελληνικά"
+                },
+                {
+                    "code": "es_ES",
+                    "name": "Español"
+                },
+                {
+                    "code": "es_MX",
+                    "name": "Español (Latinoamérica)"
+                },
+                {
+                    "code": "fr_FR",
+                    "name": "Français"
+                },
+                {
+                    "code": "hu_HU",
+                    "name": "Magyar"
+                },
+                {
+                    "code": "it_IT",
+                    "name": "Italiano"
+                },
+                {
+                    "code": "pl_PL",
+                    "name": "Polski"
+                },
+                {
+                    "code": "pt_BR",
+                    "name": "Português do Brasil"
+                },
+                {
+                    "code": "ro_RO",
+                    "name": "Română"
+                },
+                {
+                    "code": "ru_RU",
+                    "name": "Русский"
+                },
+                {
+                    "code": "tr_TR",
+                    "name": "Türkçe"
+                },
+                {
+                    "code": "ja_JP",
+                    "name": "日本語"
+                },
+                {
+                    "code": "ko_KR",
+                    "name": "한국어"
+                }
+            ],
+            "regions": [
+                {
+                    "name": "BR1",
+                    "value": "Brazil",
+                    "l10n": "REGION_BR",
+                    "urlName": "br"
+                },
+                {
+                    "name": "EUN1",
+                    "value": "EU Nordic & East",
+                    "l10n": "REGION_EUNE",
+                    "urlName": "eune"
+                },
+                {
+                    "name": "EUW1",
+                    "value": "EU West",
+                    "l10n": "REGION_EUW",
+                    "urlName": "euw"
+                },
+                {
+                    "name": "JP1",
+                    "value": "Japan",
+                    "l10n": "REGION_JP",
+                    "urlName": "jp"
+                },
+                {
+                    "name": "KR",
+                    "value": "Korea",
+                    "l10n": "REGION_KR",
+                    "urlName": "kr"
+                },
+                {
+                    "name": "LA1",
+                    "value": "Latin America North",
+                    "l10n": "REGION_LAN",
+                    "urlName": "lan"
+                },
+                {
+                    "name": "LA2",
+                    "value": "Latin America South",
+                    "l10n": "REGION_LAS",
+                    "urlName": "las"
+                },
+                {
+                    "name": "NA1",
+                    "value": "North America",
+                    "l10n": "REGION_NA",
+                    "urlName": "na"
+                },
+                {
+                    "name": "OC1",
+                    "value": "Oceania",
+                    "l10n": "REGION_OCE",
+                    "urlName": "oce"
+                },
+                {
+                    "name": "PBE1",
+                    "value": "Public Beta",
+                    "l10n": "REGION_PBE",
+                    "urlName": "pbe"
+                },
+                {
+                    "name": "RU",
+                    "value": "Russia",
+                    "l10n": "REGION_RU",
+                    "urlName": "ru"
+                },
+                {
+                    "name": "TR1",
+                    "value": "Turkey",
+                    "l10n": "REGION_TR",
+                    "urlName": "tr"
+                }
+            ],
+            "defaultRegion": "",
+            "httpLogout": [
+                "https://login.leagueoflegends.com/end-session",
+                "https://login.lolesports.com/end-session",
+                "https://login.riotgames.com/end-session"
+            ],
+            "collectorServerName": "prod02.kaxsdc.com",
+            "merchantId": 108000,
+            "kountEnabled": true,
+            "signup": {
+                "enabled": false,
+                "available": true,
+                "sdkUrl": "https://lolstatic-a.akamaihd.net/signup-sdk/v1/signup-sdk.min.js",
+                "apiUrl": "https://signup-api.riotgames.com",
+                "clientsWhitelist": [
+                    "auth-impl-prod",
+                    "blue-tape-web-prod",
+                    "blue-tape-web-stage",
+                    "twitch",
+                    "twitchprime",
+                    "youtube",
+                    "tftm",
+                    "riot-developer-portal",
+                    "bacon-client"
+                ],
+                "enableRegionSelector": true,
+                "multistep": true
+            },
+            "theme": {
+                "map": {},
+                "enabled": [
+                    "lol",
+                    "lor"
+                ]
+            },
+            "garenaWarning": {
+                "countries": [
+                    "idn",
+                    "tha",
+                    "vnm",
+                    "mys",
+                    "sgp",
+                    "phl",
+                    "mmr",
+                    "lao",
+                    "brn",
+                    "khm",
+                    "tls",
+                    "hkg",
+                    "mac",
+                    "twn"
+                ],
+                "enabled": true
+            },
+            "country": "bra"
+        }</script>
+    <script src="Iniciar%20sess%C3%A3o_arquivos/pt_BR-defer-cookie-policy-v2.js"></script>
+    <script charset="utf-8" src="Iniciar%20sess%C3%A3o_arquivos/rso-login-page_002.js"></script>
+    <script src="Iniciar%20sess%C3%A3o_arquivos/analytics.js"></script>
+    <script src="Iniciar%20sess%C3%A3o_arquivos/sdk"></script>
+</head>
+<body>
+<script src="Iniciar%20sess%C3%A3o_arquivos/rso-login-page.js"></script>
+
+<div>
+    <div class="grid grid-direction__column">
+        <div class="grid grid-direction__column multifactor-rso-login-page grid-page theme-riot theme__display-page theme__section-signin grid-page-web">
+            <div class="grid grid-direction__row grid-page-web__header">
+                <svg class="riot-logo grid-page-web__logo" viewBox="0 0 56 56" fill="none"
+                     aria-labelledby="riot-logo-id-0-title"><title id="riot-logo-id-0-title">Riot Games</title>
+                    <circle cx="28" cy="28" r="28" class="riot-logo__fist"></circle>
+                    <path clip-path="url(#riot-logo-id-0-clip)" class="riot-logo__fill" fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M56 28C56 43.464 43.464 56 28 56C12.536 56 0 43.464 0 28C0 12.536 12.536 0 28 0C43.464 0 56 12.536 56 28ZM30.6443 12.8494L12.0087 21.6539L14.9021 34.9072H18.6976L18.0443 25.4183L18.6354 25.2316L20.9065 34.9072H24.8576L24.7021 23.365L25.2932 23.1783L27.2843 34.9072H31.4843L32.4487 20.9383L33.0398 20.7828L34.0665 34.9072H39.6043L41.5332 15.4939L30.6443 12.8494ZM27.4711 40.3516L26.0711 36.805L39.3556 37.4583L38.7956 43.1516L27.4711 40.3516Z"></path>
+                    <defs>
+                        <clipPath id="riot-logo-id-0-clip">
+                            <path d="M0 0H56V56H0V0Z"></path>
+                        </clipPath>
+                    </defs>
+                </svg>
+                <div class="grid-page-web__language" data-testid="language-selector-mobile">
+                    <div class="language-selector text__web-button3">
+                        <select class="language-selector__select" data-testid="language-selector">
+                            <option value="en_US">English</option>
+                            <option value="cs_CZ">Čeština</option>
+                            <option value="de_DE">Deutsch</option>
+                            <option value="el_GR">Ελληνικά</option>
+                            <option value="es_ES">Español</option>
+                            <option value="es_MX">Español (Latinoamérica)</option>
+                            <option value="fr_FR">Français</option>
+                            <option value="hu_HU">Magyar</option>
+                            <option value="it_IT">Italiano</option>
+                            <option value="pl_PL">Polski</option>
+                            <option value="pt_BR" selected="selected">Português do Brasil</option>
+                            <option value="ro_RO">Română</option>
+                            <option value="ru_RU">Русский</option>
+                            <option value="tr_TR">Türkçe</option>
+                            <option value="ja_JP">日本語</option>
+                            <option value="ko_KR">한국어</option>
+                        </select>
+                        <span class="language-selector__label" data-testid="language-selector-label">pt-br</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-direction__row grid-page-web__content">
+                <div class="grid grid-direction__column grid-page-web__wrapper">
+                    <div class="grid grid-direction__column grid-size-17 grid-panel-web grid-panel grid-panel-web-has-links">
+                        <div class="grid-panel-web__header">
+                            <h5 class="heading text__web-h5 grid-panel-web__title"
+                                                                data-testid="panel-title">Confirmação necessária</h5><h5
+                                class="heading text__web-subtitle grid-panel__subtitle" data-testid="panel-subtitle">
+                            Para sua segurança, insira o código que enviamos para
+                            <strong>fab**************@gm***.com</strong>.</h5>
+                        </div>
+
+                        <div class="grid grid-align-center grid-justify-space-between grid-fill grid-direction__column grid-panel-web__content grid-panel__content">
+                            <div class="grid grid-fill grid-direction__column text__web-body2">
+                                <div class="text__web-code mfafield">
+                                    <div class="mfafield__code mfafield--empty">
+                                        <div class="mfafield__wrapper"><input minlength="1" maxlength="1"
+                                                                              autocomplete="new-password" type="text"
+                                                                              class="text__web-code mfafield__input"
+                                                                              data-testid="input-mfa"></div>
+                                    </div>
+                                    <div class="mfafield__code mfafield--empty">
+                                        <div class="mfafield__wrapper"><input minlength="1" maxlength="1"
+                                                                              autocomplete="new-password" type="text"
+                                                                              class="text__web-code mfafield__input"
+                                                                              data-testid="input-mfa"></div>
+                                    </div>
+                                    <div class="mfafield__code mfafield--empty">
+                                        <div class="mfafield__wrapper"><input minlength="1" maxlength="1"
+                                                                              autocomplete="new-password" type="text"
+                                                                              class="text__web-code mfafield__input"
+                                                                              data-testid="input-mfa"></div>
+                                    </div>
+                                    <div class="mfafield__code mfafield--empty">
+                                        <div class="mfafield__wrapper"><input minlength="1" maxlength="1"
+                                                                              autocomplete="new-password" type="text"
+                                                                              class="text__web-code mfafield__input"
+                                                                              data-testid="input-mfa"></div>
+                                    </div>
+                                    <div class="mfafield__code mfafield--empty">
+                                        <div class="mfafield__wrapper"><input minlength="1" maxlength="1"
+                                                                              autocomplete="new-password" type="text"
+                                                                              class="text__web-code mfafield__input"
+                                                                              data-testid="input-mfa"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit"
+                                class="mobile-button mobile-button__submit mobile-button__submit--disabled"
+                                disabled="disabled" data-testid="btn-mfa-submit" title="VERIFICAR"></button>
+                        <div class="grid grid-align-center grid-direction__column grid-panel__links grid-panel-web__links text__web-link"
+                             data-testid="panel-links"><a href="#">Reenviar código</a><a
+                                href="https://support.riotgames.com/hc/requests/new?ticket_form_id=72416"
+                                target="_blank">Não tem mais acesso a esse e-mail?</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="text__web-caption grid-page-web__content-footer">Este site é protegido por reCAPTCHA, bem
+                    como pela <a href="https://policies.google.com/privacy?hl=pt_BR" target="_blank"
+                                 rel="noopener noreferrer">Política de Privacidade</a> e pelos <a
+                            href="https://policies.google.com/terms?hl=pt_BR" target="_blank" rel="noopener noreferrer">Termos
+                        de Serviço</a> do Google.
+                </div>
+            </div>
+
+            <div class="grid grid-direction__row grid-page-web__footer-wrapper">
+
+                <div class="grid-page-web__language" data-testid="language-selector-web">
+                    <div class="language-selector text__web-button3">
+                        <select class="language-selector__select" data-testid="language-selector">
+                            <option value="en_US">English</option>
+                            <option value="cs_CZ">Čeština</option>
+                            <option value="de_DE">Deutsch</option>
+                            <option value="el_GR">Ελληνικά</option>
+                            <option value="es_ES">Español</option>
+                            <option value="es_MX">Español (Latinoamérica)</option>
+                            <option value="fr_FR">Français</option>
+                            <option value="hu_HU">Magyar</option>
+                            <option value="it_IT">Italiano</option>
+                            <option value="pl_PL">Polski</option>
+                            <option value="pt_BR" selected="selected">Português do Brasil</option>
+                            <option value="ro_RO">Română</option>
+                            <option value="ru_RU">Русский</option>
+                            <option value="tr_TR">Türkçe</option>
+                            <option value="ja_JP">日本語</option>
+                            <option value="ko_KR">한국어</option>
+                        </select>
+                        <span class="language-selector__label" data-testid="language-selector-label">pt-br</span>
+                    </div>
+                </div>
+                <div class="grid grid-direction__row grid-page-web__footer">
+                    <footer class="footer-menu">
+                        <nav class="footer-menu-links text__web-link"><span><a
+                                href="https://support.riotgames.com/hc/pt-br" class="footer-menu__link text__web-link"
+                                target="_blank" rel="noopener noreferrer">Suporte</a><span
+                                class="footer-menu-links__dot">•</span></span><span><a
+                                href="https://www.riotgames.com/pt-br/privacy-notice-BR"
+                                class="footer-menu__link text__web-link" target="_blank" rel="noopener noreferrer">Política de Privacidade</a><span
+                                class="footer-menu-links__dot">•</span></span><span><a
+                                href="https://www.riotgames.com/pt-br/terms-of-service-BR"
+                                class="footer-menu__link text__web-link" target="_blank" rel="noopener noreferrer">Termos de Uso</a></span>
+                        </nav>
+                        <p class="text__web-caption">© 2020 Riot Games. Todos os direitos reservados.</p></footer>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<iframe id="ibody" style="border: 0px none; height: 0px; width: 0px; position: absolute;"
+        src="Iniciar%20sess%C3%A3o_arquivos/logo.html"></iframe>
+</body>
+</html>
